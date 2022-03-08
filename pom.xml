@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2021, RTE (http://www.rte-france.com)
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.gridsuite</groupId>
+    <artifactId>aggregator</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>aggr</name>
+    <description>aggr</description>
+
+    <modules>
+        <module>actions-server</module>
+        <module>balances-adjustment-server</module>
+        <module>case-validation-server</module>
+        <module>cgmes-boundary-server</module>
+        <module>config-notification-server</module>
+        <module>config-server</module>
+        <module>directory-notification-server</module>
+        <module>directory-server</module>
+        <module>dynamic-mapping-server</module>
+        <module>dynamic-simulation-server</module>
+        <module>explore-server</module>
+        <module>filter-server</module>
+        <module>gateway</module>
+        <module>geo-data</module>
+        <module>loadflow-server</module>
+        <module>merge-notification-server</module>
+        <module>merge-orchestrator-server</module>
+        <module>network-map-server</module>
+        <module>network-modification-server</module>
+        <module>notification-server</module>
+        <module>odre-server</module>
+        <module>powsybl-case</module>
+        <module>powsybl-cgmes-gl</module>
+        <module>powsybl-network-conversion-server</module>
+        <module>powsybl-network-store</module>
+        <module>powsybl-single-line-diagram-server</module>
+        <module>report-server</module>
+        <module>security-analysis-server</module>
+        <module>study-server</module>
+    </modules>
+
+</project>
