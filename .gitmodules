@@ -1,0 +1,248 @@
+[submodule "powsybl-core"]
+	path = powsybl-core
+	url = https://github.com/powsybl/powsybl-core
+	branch = main
+[submodule "powsybl-math-native"]
+	path = powsybl-math-native
+	url = https://github.com/powsybl/powsybl-math-native
+	branch = main
+[submodule "powsybl-dynawo"]
+	path = powsybl-dynawo
+	url = https://github.com/powsybl/powsybl-dynawo
+	branch = main
+[submodule "powsybl-open-loadflow"]
+	path = powsybl-open-loadflow
+	url = https://github.com/powsybl/powsybl-open-loadflow
+	branch = main
+[submodule "powsybl-single-line-diagram"]
+	path = powsybl-single-line-diagram
+	url = https://github.com/powsybl/powsybl-single-line-diagram
+	branch = main
+[submodule "powsybl-network-store"]
+	path = powsybl-network-store
+	url = https://github.com/powsybl/powsybl-network-store
+	branch = main
+[submodule "powsybl-single-line-diagram-server"]
+	path = powsybl-single-line-diagram-server
+	url = https://github.com/powsybl/powsybl-single-line-diagram-server
+	branch = main
+[submodule "powsybl-network-conversion-server"]
+	path = powsybl-network-conversion-server
+	url = https://github.com/powsybl/powsybl-network-conversion-server
+	branch = main
+[submodule "powsybl-case"]
+	path = powsybl-case
+	url = https://github.com/powsybl/powsybl-case
+	branch = main
+[submodule "powsybl-balances-adjustment"]
+	path = powsybl-balances-adjustment
+	url = https://github.com/powsybl/powsybl-balances-adjustment
+	branch = main
+[submodule "powsybl-cgmes-gl"]
+	path = powsybl-cgmes-gl
+	url = https://github.com/powsybl/powsybl-cgmes-gl
+	branch = main
+[submodule "powsybl-parent"]
+	path = powsybl-parent
+	url = https://github.com/powsybl/powsybl-parent
+	branch = main
+[submodule "powsybl-entsoe"]
+	path = powsybl-entsoe
+	url = https://github.com/powsybl/powsybl-entsoe
+	branch = main
+[submodule "java-docker"]
+	path = java-docker
+	url = https://github.com/powsybl/java-docker
+	branch = main
+[submodule "powsybl-single-line-diagram-viewer"]
+	path = powsybl-single-line-diagram-viewer
+	url = https://github.com/powsybl/powsybl-single-line-diagram-viewer
+	branch = main
+[submodule "powsybl-network-area-diagram"]
+	path = powsybl-network-area-diagram
+	url = https://github.com/powsybl/powsybl-network-area-diagram
+	branch = main
+[submodule "powsybl-ws-commons"]
+	path = powsybl-ws-commons
+	url = https://github.com/powsybl/powsybl-ws-commons
+	branch = main
+[submodule "geo-data"]
+	path = geo-data
+	url = https://github.com/gridsuite/geo-data
+	branch = main
+[submodule "study-server"]
+	path = study-server
+	url = https://github.com/gridsuite/study-server
+	branch = main
+[submodule "network-map-server"]
+	path = network-map-server
+	url = https://github.com/gridsuite/network-map-server
+	branch = main
+[submodule "deployment"]
+	path = deployment
+	url = https://github.com/gridsuite/deployment
+	branch = main
+[submodule "gridstudy-app"]
+	path = gridstudy-app
+	url = https://github.com/gridsuite/gridstudy-app
+	branch = main
+[submodule "odre-server"]
+	path = odre-server
+	url = https://github.com/gridsuite/odre-server
+	branch = main
+[submodule "oidc-mock-server"]
+	path = oidc-mock-server
+	url = https://github.com/gridsuite/oidc-mock-server
+	branch = main
+[submodule "broadcast-event"]
+	path = broadcast-event
+	url = https://github.com/gridsuite/broadcast-event
+	branch = main
+[submodule "network-modification-server"]
+	path = network-modification-server
+	url = https://github.com/gridsuite/network-modification-server
+	branch = main
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/gridsuite/gateway
+	branch = main
+[submodule "geo-data-app"]
+	path = geo-data-app
+	url = https://github.com/gridsuite/geo-data-app
+	branch = main
+[submodule "gridsuite.github.io"]
+	path = gridsuite.github.io
+	url = https://github.com/gridsuite/gridsuite.github.io
+	branch = main
+[submodule "commons-ui"]
+	path = commons-ui
+	url = https://github.com/gridsuite/commons-ui
+	branch = main
+[submodule "case-import-job"]
+	path = case-import-job
+	url = https://github.com/gridsuite/case-import-job
+	branch = main
+[submodule "loadflow-server"]
+	path = loadflow-server
+	url = https://github.com/gridsuite/loadflow-server
+	branch = main
+[submodule "notification-server"]
+	path = notification-server
+	url = https://github.com/gridsuite/notification-server
+	branch = main
+[submodule "balances-adjustment-server"]
+	path = balances-adjustment-server
+	url = https://github.com/gridsuite/balances-adjustment-server
+	branch = main
+[submodule "merge-orchestrator-server"]
+	path = merge-orchestrator-server
+	url = https://github.com/gridsuite/merge-orchestrator-server
+	branch = main
+[submodule "gridapp-template"]
+	path = gridapp-template
+	url = https://github.com/gridsuite/gridapp-template
+	branch = main
+[submodule "case-validation-server"]
+	path = case-validation-server
+	url = https://github.com/gridsuite/case-validation-server
+	branch = main
+[submodule "merge-notification-server"]
+	path = merge-notification-server
+	url = https://github.com/gridsuite/merge-notification-server
+	branch = main
+[submodule "cgmes-assembling-job"]
+	path = cgmes-assembling-job
+	url = https://github.com/gridsuite/cgmes-assembling-job
+	branch = main
+[submodule "cgmes-boundary-server"]
+	path = cgmes-boundary-server
+	url = https://github.com/gridsuite/cgmes-boundary-server
+	branch = main
+[submodule "gridmerge-app"]
+	path = gridmerge-app
+	url = https://github.com/gridsuite/gridmerge-app
+	branch = main
+[submodule "dependencies"]
+	path = dependencies
+	url = https://github.com/gridsuite/dependencies
+	branch = main
+[submodule "java-hades2-docker"]
+	path = java-hades2-docker
+	url = https://github.com/gridsuite/java-hades2-docker
+	branch = main
+[submodule "actions-server"]
+	path = actions-server
+	url = https://github.com/gridsuite/actions-server
+	branch = main
+[submodule "security-analysis-server"]
+	path = security-analysis-server
+	url = https://github.com/gridsuite/security-analysis-server
+	branch = main
+[submodule "gridactions-app"]
+	path = gridactions-app
+	url = https://github.com/gridsuite/gridactions-app
+	branch = main
+[submodule "test-cases"]
+	path = test-cases
+	url = https://github.com/gridsuite/test-cases
+	branch = main
+[submodule "config-server"]
+	path = config-server
+	url = https://github.com/gridsuite/config-server
+	branch = main
+[submodule "config-notification-server"]
+	path = config-notification-server
+	url = https://github.com/gridsuite/config-notification-server
+	branch = main
+[submodule "directory-server"]
+	path = directory-server
+	url = https://github.com/gridsuite/directory-server
+	branch = main
+[submodule "java-dynawo-docker"]
+	path = java-dynawo-docker
+	url = https://github.com/gridsuite/java-dynawo-docker
+	branch = main
+[submodule "dynamic-simulation-server"]
+	path = dynamic-simulation-server
+	url = https://github.com/gridsuite/dynamic-simulation-server
+	branch = main
+[submodule "cgmes-boundary-import-job"]
+	path = cgmes-boundary-import-job
+	url = https://github.com/gridsuite/cgmes-boundary-import-job
+	branch = main
+[submodule "griddyna-app"]
+	path = griddyna-app
+	url = https://github.com/gridsuite/griddyna-app
+	branch = main
+[submodule "gridpy"]
+	path = gridpy
+	url = https://github.com/gridsuite/gridpy
+	branch = main
+[submodule "filter-server"]
+	path = filter-server
+	url = https://github.com/gridsuite/filter-server
+	branch = main
+[submodule "dynamic-mapping-server"]
+	path = dynamic-mapping-server
+	url = https://github.com/gridsuite/dynamic-mapping-server
+	branch = main
+[submodule "report-server"]
+	path = report-server
+	url = https://github.com/gridsuite/report-server
+	branch = main
+[submodule "gridexplore-app"]
+	path = gridexplore-app
+	url = https://github.com/gridsuite/gridexplore-app
+	branch = main
+[submodule "directory-notification-server"]
+	path = directory-notification-server
+	url = https://github.com/gridsuite/directory-notification-server
+	branch = main
+[submodule "explore-server"]
+	path = explore-server
+	url = https://github.com/gridsuite/explore-server
+	branch = main
+[submodule "documentation"]
+	path = documentation
+	url = https://github.com/gridsuite/documentation
+	branch = main
