@@ -66,10 +66,6 @@
 	path = powsybl-ws-commons
 	url = https://github.com/powsybl/powsybl-ws-commons
 	branch = main
-[submodule "geo-data"]
-	path = geo-data
-	url = https://github.com/gridsuite/geo-data
-	branch = main
 [submodule "study-server"]
 	path = study-server
 	url = https://github.com/gridsuite/study-server
@@ -125,10 +121,6 @@
 [submodule "loadflow-server"]
 	path = loadflow-server
 	url = https://github.com/gridsuite/loadflow-server
-	branch = main
-[submodule "notification-server"]
-	path = notification-server
-	url = https://github.com/gridsuite/notification-server
 	branch = main
 [submodule "balances-adjustment-server"]
 	path = balances-adjustment-server
@@ -246,3 +238,60 @@
 	path = documentation
 	url = https://github.com/gridsuite/documentation
 	branch = main
+[submodule "case-import-server"]
+	path = case-import-server
+	url = https://github.com/gridsuite/case-import-server
+[submodule "cgmes-gl-server"]
+	path = cgmes-gl-server
+	url = https://github.com/gridsuite/cgmes-gl-server
+[submodule "geo-data-server"]
+	path = geo-data-server
+	url = https://github.com/gridsuite/geo-data-server
+[submodule "admin-tools"]
+	path = admin-tools
+	url = https://github.com/gridsuite/admin-tools
+[submodule "java-simulator-docker"]
+	path = java-simulator-docker
+	url = https://github.com/gridsuite/java-simulator-docker
+[submodule "sensitivity-analysis-server"]
+	path = sensitivity-analysis-server
+	url = https://github.com/gridsuite/sensitivity-analysis-server
+[submodule "shortcircuit-server"]
+	path = shortcircuit-server
+	url = https://github.com/gridsuite/shortcircuit-server
+[submodule "study-notification-server"]
+	path = study-notification-server
+	url = https://github.com/gridsuite/study-notification-server
+[submodule "timeseries-server"]
+	path = timeseries-server
+	url = https://github.com/gridsuite/timeseries-server
+[submodule "user-admin-server"]
+	path = user-admin-server
+	url = https://github.com/gridsuite/user-admin-server
+[submodule "voltage-init-server"]
+	path = voltage-init-server
+	url = https://github.com/gridsuite/voltage-init-server
+[submodule "powsybl-case-datasource"]
+	path = powsybl-case-datasource
+	url = https://github.com/powsybl/powsybl-case-datasource
+[submodule "powsybl-case-server"]
+	path = powsybl-case-server
+	url = https://github.com/powsybl/powsybl-case-server
+[submodule "powsybl-dependencies"]
+	path = powsybl-dependencies
+	url = https://github.com/powsybl/powsybl-dependencies
+[submodule "powsybl-diagram"]
+	path = powsybl-diagram
+	url = https://github.com/powsybl/powsybl-diagram
+[submodule "powsybl-diagram-viewer"]
+	path = powsybl-diagram-viewer
+	url = https://github.com/powsybl/powsybl-diagram-viewer
+[submodule "powsybl-network-store-server"]
+	path = powsybl-network-store-server
+	url = https://github.com/powsybl/powsybl-network-store-server
+[submodule "powsybl-network-hypothesis"]
+	path = powsybl-network-hypothesis
+	url = https://github.com/powsybl/powsybl-network-hypothesis
+[submodule "powsybl-ws-dependencies"]
+	path = powsybl-ws-dependencies
+	url = https://github.com/powsybl/powsybl-ws-dependencies

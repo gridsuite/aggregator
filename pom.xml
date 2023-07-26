@@ -23,8 +23,10 @@
     <modules>
         <module>actions-server</module>
         <module>balances-adjustment-server</module>
+        <module>case-import-server</module>
         <module>case-validation-server</module>
         <module>cgmes-boundary-server</module>
+        <module>cgmes-gl-server</module>
         <module>config-notification-server</module>
         <module>config-server</module>
         <module>directory-notification-server</module>
@@ -35,6 +37,7 @@
         <module>filter-server</module>
         <module>gateway</module>
         <module>geo-data</module>
+        <module>geo-data-server</module>
         <module>loadflow-server</module>
         <module>merge-notification-server</module>
         <module>merge-orchestrator-server</module>
@@ -42,14 +45,27 @@
         <module>network-modification-server</module>
         <module>notification-server</module>
         <module>odre-server</module>
+        <module>powsybl-case-datasource</module>
         <module>powsybl-case</module>
+        <module>powsybl-case-server</module>
         <module>powsybl-cgmes-gl</module>
+        <module>powsybl-dependencies</module>
+        <module>powsybl-diagram</module>
         <module>powsybl-network-conversion-server</module>
+        <module>powsybl-network-hypothesis</module>
         <module>powsybl-network-store</module>
+        <module>powsybl-network-store-server</module>
         <module>powsybl-single-line-diagram-server</module>
+        <module>powsybl-ws-dependencies</module>
         <module>report-server</module>
         <module>security-analysis-server</module>
+        <module>sensitivity-analysis-server</module>
+        <module>shortcircuit-server</module>
+        <module>study-notification-server</module>
         <module>study-server</module>
+        <module>timeseries-server</module>
+        <module>user-admin-server</module>
+        <module>voltage-init-server</module>
     </modules>
 
 </project>
