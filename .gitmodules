@@ -237,57 +237,76 @@
 [submodule "case-import-server"]
 	path = case-import-server
 	url = https://github.com/gridsuite/case-import-server
+	branch = main
 [submodule "cgmes-gl-server"]
 	path = cgmes-gl-server
 	url = https://github.com/gridsuite/cgmes-gl-server
+	branch = main
 [submodule "geo-data-server"]
 	path = geo-data-server
 	url = https://github.com/gridsuite/geo-data-server
+	branch = main
 [submodule "admin-tools"]
 	path = admin-tools
 	url = https://github.com/gridsuite/admin-tools
+	branch = main
 [submodule "java-simulator-docker"]
 	path = java-simulator-docker
 	url = https://github.com/gridsuite/java-simulator-docker
+	branch = main
 [submodule "sensitivity-analysis-server"]
 	path = sensitivity-analysis-server
 	url = https://github.com/gridsuite/sensitivity-analysis-server
+	branch = main
 [submodule "shortcircuit-server"]
 	path = shortcircuit-server
 	url = https://github.com/gridsuite/shortcircuit-server
+	branch = main
 [submodule "study-notification-server"]
 	path = study-notification-server
 	url = https://github.com/gridsuite/study-notification-server
+	branch = main
 [submodule "timeseries-server"]
 	path = timeseries-server
 	url = https://github.com/gridsuite/timeseries-server
+	branch = main
 [submodule "user-admin-server"]
 	path = user-admin-server
 	url = https://github.com/gridsuite/user-admin-server
+	branch = main
 [submodule "voltage-init-server"]
 	path = voltage-init-server
 	url = https://github.com/gridsuite/voltage-init-server
+	branch = main
 [submodule "powsybl-case-datasource"]
 	path = powsybl-case-datasource
 	url = https://github.com/powsybl/powsybl-case-datasource
+	branch = main
 [submodule "powsybl-case-server"]
 	path = powsybl-case-server
 	url = https://github.com/powsybl/powsybl-case-server
+	branch = main
 [submodule "powsybl-dependencies"]
 	path = powsybl-dependencies
 	url = https://github.com/powsybl/powsybl-dependencies
+	branch = main
 [submodule "powsybl-diagram"]
 	path = powsybl-diagram
 	url = https://github.com/powsybl/powsybl-diagram
+	branch = main
 [submodule "powsybl-diagram-viewer"]
 	path = powsybl-diagram-viewer
 	url = https://github.com/powsybl/powsybl-diagram-viewer
+	branch = main
 [submodule "powsybl-network-store-server"]
 	path = powsybl-network-store-server
 	url = https://github.com/powsybl/powsybl-network-store-server
+	branch = main
 [submodule "powsybl-network-hypothesis"]
 	path = powsybl-network-hypothesis
 	url = https://github.com/powsybl/powsybl-network-hypothesis
+	branch = main
 [submodule "powsybl-ws-dependencies"]
 	path = powsybl-ws-dependencies
 	url = https://github.com/powsybl/powsybl-ws-dependencies
+	branch = main
