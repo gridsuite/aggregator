@@ -54,10 +54,6 @@
 	path = java-docker
 	url = https://github.com/powsybl/java-docker
 	branch = main
-[submodule "powsybl-single-line-diagram-viewer"]
-	path = powsybl-single-line-diagram-viewer
-	url = https://github.com/powsybl/powsybl-single-line-diagram-viewer
-	branch = main
 [submodule "powsybl-network-area-diagram"]
 	path = powsybl-network-area-diagram
 	url = https://github.com/powsybl/powsybl-network-area-diagram
