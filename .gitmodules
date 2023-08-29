@@ -30,10 +30,6 @@
 	path = backend/libs/powsybl-case
 	url = https://github.com/powsybl/powsybl-case
 	branch = main
-[submodule "powsybl-balances-adjustment"]
-	path = backend/libs/powsybl-balances-adjustment
-	url = https://github.com/powsybl/powsybl-balances-adjustment
-	branch = main
 [submodule "powsybl-parent"]
 	path = backend/build/powsybl-parent
 	url = https://github.com/powsybl/powsybl-parent

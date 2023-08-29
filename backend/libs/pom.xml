@@ -21,7 +21,6 @@
     <description>Aggregator libs</description>
 
     <modules>
-        <module>powsybl-balances-adjustment</module>
         <module>powsybl-case-datasource</module>
         <module>powsybl-core</module>
         <module>powsybl-diagram</module>
