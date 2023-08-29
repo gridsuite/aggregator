@@ -13,12 +13,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gridsuite</groupId>
-    <artifactId>aggregator</artifactId>
+    <artifactId>aggregator-servers</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
-    <name>aggr</name>
-    <description>aggr</description>
+    <name>aggregator-servers</name>
+    <description>Aggregator servers</description>
 
     <modules>
         <module>actions-server</module>
@@ -36,27 +36,17 @@
         <module>explore-server</module>
         <module>filter-server</module>
         <module>gateway</module>
-        <module>geo-data</module>
         <module>geo-data-server</module>
         <module>loadflow-server</module>
         <module>merge-notification-server</module>
         <module>merge-orchestrator-server</module>
         <module>network-map-server</module>
         <module>network-modification-server</module>
-        <module>notification-server</module>
         <module>odre-server</module>
-        <module>powsybl-case-datasource</module>
-        <module>powsybl-case</module>
         <module>powsybl-case-server</module>
-        <module>powsybl-cgmes-gl</module>
-        <module>powsybl-dependencies</module>
-        <module>powsybl-diagram</module>
         <module>powsybl-network-conversion-server</module>
-        <module>powsybl-network-hypothesis</module>
-        <module>powsybl-network-store</module>
         <module>powsybl-network-store-server</module>
         <module>powsybl-single-line-diagram-server</module>
-        <module>powsybl-ws-dependencies</module>
         <module>report-server</module>
         <module>security-analysis-server</module>
         <module>sensitivity-analysis-server</module>

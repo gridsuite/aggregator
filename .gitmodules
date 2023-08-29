@@ -1,312 +1,296 @@
 [submodule "powsybl-core"]
-	path = powsybl-core
+	path = backend/libs/powsybl-core
 	url = https://github.com/powsybl/powsybl-core
 	branch = main
 [submodule "powsybl-math-native"]
-	path = powsybl-math-native
+	path = backend/libs/powsybl-math-native
 	url = https://github.com/powsybl/powsybl-math-native
 	branch = main
 [submodule "powsybl-dynawo"]
-	path = powsybl-dynawo
+	path = backend/libs/powsybl-dynawo
 	url = https://github.com/powsybl/powsybl-dynawo
 	branch = main
 [submodule "powsybl-open-loadflow"]
-	path = powsybl-open-loadflow
+	path = backend/libs/powsybl-open-loadflow
 	url = https://github.com/powsybl/powsybl-open-loadflow
 	branch = main
-[submodule "powsybl-single-line-diagram"]
-	path = powsybl-single-line-diagram
-	url = https://github.com/powsybl/powsybl-single-line-diagram
-	branch = main
 [submodule "powsybl-network-store"]
-	path = powsybl-network-store
+	path = backend/libs/powsybl-network-store
 	url = https://github.com/powsybl/powsybl-network-store
 	branch = main
 [submodule "powsybl-single-line-diagram-server"]
-	path = powsybl-single-line-diagram-server
+	path = backend/servers/powsybl-single-line-diagram-server
 	url = https://github.com/powsybl/powsybl-single-line-diagram-server
 	branch = main
 [submodule "powsybl-network-conversion-server"]
-	path = powsybl-network-conversion-server
+	path = backend/servers/powsybl-network-conversion-server
 	url = https://github.com/powsybl/powsybl-network-conversion-server
 	branch = main
 [submodule "powsybl-case"]
-	path = powsybl-case
+	path = backend/libs/powsybl-case
 	url = https://github.com/powsybl/powsybl-case
 	branch = main
 [submodule "powsybl-balances-adjustment"]
-	path = powsybl-balances-adjustment
+	path = backend/libs/powsybl-balances-adjustment
 	url = https://github.com/powsybl/powsybl-balances-adjustment
 	branch = main
-[submodule "powsybl-cgmes-gl"]
-	path = powsybl-cgmes-gl
-	url = https://github.com/powsybl/powsybl-cgmes-gl
-	branch = main
 [submodule "powsybl-parent"]
-	path = powsybl-parent
+	path = backend/build/powsybl-parent
 	url = https://github.com/powsybl/powsybl-parent
 	branch = main
 [submodule "powsybl-entsoe"]
-	path = powsybl-entsoe
+	path = backend/libs/powsybl-entsoe
 	url = https://github.com/powsybl/powsybl-entsoe
 	branch = main
 [submodule "java-docker"]
-	path = java-docker
+	path = docker/java-docker
 	url = https://github.com/powsybl/java-docker
 	branch = main
-[submodule "powsybl-network-area-diagram"]
-	path = powsybl-network-area-diagram
-	url = https://github.com/powsybl/powsybl-network-area-diagram
-	branch = main
 [submodule "powsybl-ws-commons"]
-	path = powsybl-ws-commons
+	path = backend/libs/powsybl-ws-commons
 	url = https://github.com/powsybl/powsybl-ws-commons
 	branch = main
 [submodule "study-server"]
-	path = study-server
+	path = backend/servers/study-server
 	url = https://github.com/gridsuite/study-server
 	branch = main
 [submodule "network-map-server"]
-	path = network-map-server
+	path = backend/servers/network-map-server
 	url = https://github.com/gridsuite/network-map-server
 	branch = main
 [submodule "deployment"]
-	path = deployment
+	path = tools/deployment
 	url = https://github.com/gridsuite/deployment
 	branch = main
 [submodule "gridstudy-app"]
-	path = gridstudy-app
+	path = frontend/apps/gridstudy-app
 	url = https://github.com/gridsuite/gridstudy-app
 	branch = main
 [submodule "odre-server"]
-	path = odre-server
+	path = backend/servers/odre-server
 	url = https://github.com/gridsuite/odre-server
 	branch = main
 [submodule "oidc-mock-server"]
-	path = oidc-mock-server
+	path = tools/oidc-mock-server
 	url = https://github.com/gridsuite/oidc-mock-server
 	branch = main
 [submodule "broadcast-event"]
-	path = broadcast-event
+	path = tools/broadcast-event
 	url = https://github.com/gridsuite/broadcast-event
 	branch = main
 [submodule "network-modification-server"]
-	path = network-modification-server
+	path = backend/servers/network-modification-server
 	url = https://github.com/gridsuite/network-modification-server
 	branch = main
 [submodule "gateway"]
-	path = gateway
+	path = backend/servers/gateway
 	url = https://github.com/gridsuite/gateway
 	branch = main
 [submodule "geo-data-app"]
-	path = geo-data-app
+	path = frontend/apps/geo-data-app
 	url = https://github.com/gridsuite/geo-data-app
 	branch = main
 [submodule "gridsuite.github.io"]
-	path = gridsuite.github.io
+	path = docs/gridsuite.github.io
 	url = https://github.com/gridsuite/gridsuite.github.io
 	branch = main
 [submodule "commons-ui"]
-	path = commons-ui
+	path = frontend/libs/commons-ui
 	url = https://github.com/gridsuite/commons-ui
 	branch = main
 [submodule "case-import-job"]
-	path = case-import-job
+	path = backend/jobs/case-import-job
 	url = https://github.com/gridsuite/case-import-job
 	branch = main
 [submodule "loadflow-server"]
-	path = loadflow-server
+	path = backend/servers/loadflow-server
 	url = https://github.com/gridsuite/loadflow-server
 	branch = main
 [submodule "balances-adjustment-server"]
-	path = balances-adjustment-server
+	path = backend/servers/balances-adjustment-server
 	url = https://github.com/gridsuite/balances-adjustment-server
 	branch = main
 [submodule "merge-orchestrator-server"]
-	path = merge-orchestrator-server
+	path = backend/servers/merge-orchestrator-server
 	url = https://github.com/gridsuite/merge-orchestrator-server
 	branch = main
 [submodule "gridapp-template"]
-	path = gridapp-template
+	path = frontend/apps/gridapp-template
 	url = https://github.com/gridsuite/gridapp-template
 	branch = main
 [submodule "case-validation-server"]
-	path = case-validation-server
+	path = backend/servers/case-validation-server
 	url = https://github.com/gridsuite/case-validation-server
 	branch = main
 [submodule "merge-notification-server"]
-	path = merge-notification-server
+	path = backend/servers/merge-notification-server
 	url = https://github.com/gridsuite/merge-notification-server
 	branch = main
 [submodule "cgmes-assembling-job"]
-	path = cgmes-assembling-job
+	path = backend/jobs/cgmes-assembling-job
 	url = https://github.com/gridsuite/cgmes-assembling-job
 	branch = main
 [submodule "cgmes-boundary-server"]
-	path = cgmes-boundary-server
+	path = backend/servers/cgmes-boundary-server
 	url = https://github.com/gridsuite/cgmes-boundary-server
 	branch = main
 [submodule "gridmerge-app"]
-	path = gridmerge-app
+	path = frontend/apps/gridmerge-app
 	url = https://github.com/gridsuite/gridmerge-app
 	branch = main
 [submodule "dependencies"]
-	path = dependencies
+	path = backend/build/dependencies
 	url = https://github.com/gridsuite/dependencies
 	branch = main
 [submodule "java-hades2-docker"]
-	path = java-hades2-docker
+	path = docker/java-hades2-docker
 	url = https://github.com/gridsuite/java-hades2-docker
 	branch = main
 [submodule "actions-server"]
-	path = actions-server
+	path = backend/servers/actions-server
 	url = https://github.com/gridsuite/actions-server
 	branch = main
 [submodule "security-analysis-server"]
-	path = security-analysis-server
+	path = backend/servers/security-analysis-server
 	url = https://github.com/gridsuite/security-analysis-server
 	branch = main
 [submodule "gridactions-app"]
-	path = gridactions-app
+	path = frontend/apps/gridactions-app
 	url = https://github.com/gridsuite/gridactions-app
 	branch = main
 [submodule "test-cases"]
-	path = test-cases
+	path = tools/test-cases
 	url = https://github.com/gridsuite/test-cases
 	branch = main
 [submodule "config-server"]
-	path = config-server
+	path = backend/servers/config-server
 	url = https://github.com/gridsuite/config-server
 	branch = main
 [submodule "config-notification-server"]
-	path = config-notification-server
+	path = backend/servers/config-notification-server
 	url = https://github.com/gridsuite/config-notification-server
 	branch = main
 [submodule "directory-server"]
-	path = directory-server
+	path = backend/servers/directory-server
 	url = https://github.com/gridsuite/directory-server
 	branch = main
 [submodule "java-dynawo-docker"]
-	path = java-dynawo-docker
+	path = docker/java-dynawo-docker
 	url = https://github.com/gridsuite/java-dynawo-docker
 	branch = main
 [submodule "dynamic-simulation-server"]
-	path = dynamic-simulation-server
+	path = backend/servers/dynamic-simulation-server
 	url = https://github.com/gridsuite/dynamic-simulation-server
 	branch = main
 [submodule "cgmes-boundary-import-job"]
-	path = cgmes-boundary-import-job
+	path = backend/jobs/cgmes-boundary-import-job
 	url = https://github.com/gridsuite/cgmes-boundary-import-job
 	branch = main
 [submodule "griddyna-app"]
-	path = griddyna-app
+	path = frontend/apps/griddyna-app
 	url = https://github.com/gridsuite/griddyna-app
 	branch = main
-[submodule "gridpy"]
-	path = gridpy
-	url = https://github.com/gridsuite/gridpy
-	branch = main
 [submodule "filter-server"]
-	path = filter-server
+	path = backend/servers/filter-server
 	url = https://github.com/gridsuite/filter-server
 	branch = main
 [submodule "dynamic-mapping-server"]
-	path = dynamic-mapping-server
+	path = backend/servers/dynamic-mapping-server
 	url = https://github.com/gridsuite/dynamic-mapping-server
 	branch = main
 [submodule "report-server"]
-	path = report-server
+	path = backend/servers/report-server
 	url = https://github.com/gridsuite/report-server
 	branch = main
 [submodule "gridexplore-app"]
-	path = gridexplore-app
+	path = frontend/apps/gridexplore-app
 	url = https://github.com/gridsuite/gridexplore-app
 	branch = main
 [submodule "directory-notification-server"]
-	path = directory-notification-server
+	path = backend/servers/directory-notification-server
 	url = https://github.com/gridsuite/directory-notification-server
 	branch = main
 [submodule "explore-server"]
-	path = explore-server
+	path = backend/servers/explore-server
 	url = https://github.com/gridsuite/explore-server
 	branch = main
 [submodule "documentation"]
-	path = documentation
+	path = docs/documentation
 	url = https://github.com/gridsuite/documentation
 	branch = main
 [submodule "case-import-server"]
-	path = case-import-server
+	path = backend/servers/case-import-server
 	url = https://github.com/gridsuite/case-import-server
 	branch = main
 [submodule "cgmes-gl-server"]
-	path = cgmes-gl-server
+	path = backend/servers/cgmes-gl-server
 	url = https://github.com/gridsuite/cgmes-gl-server
 	branch = main
 [submodule "geo-data-server"]
-	path = geo-data-server
+	path = backend/servers/geo-data-server
 	url = https://github.com/gridsuite/geo-data-server
 	branch = main
 [submodule "admin-tools"]
-	path = admin-tools
+	path = tools/admin-tools
 	url = https://github.com/gridsuite/admin-tools
 	branch = main
 [submodule "java-simulator-docker"]
-	path = java-simulator-docker
+	path = docker/java-simulator-docker
 	url = https://github.com/gridsuite/java-simulator-docker
 	branch = main
 [submodule "sensitivity-analysis-server"]
-	path = sensitivity-analysis-server
+	path = backend/servers/sensitivity-analysis-server
 	url = https://github.com/gridsuite/sensitivity-analysis-server
 	branch = main
 [submodule "shortcircuit-server"]
-	path = shortcircuit-server
+	path = backend/servers/shortcircuit-server
 	url = https://github.com/gridsuite/shortcircuit-server
 	branch = main
 [submodule "study-notification-server"]
-	path = study-notification-server
+	path = backend/servers/study-notification-server
 	url = https://github.com/gridsuite/study-notification-server
 	branch = main
 [submodule "timeseries-server"]
-	path = timeseries-server
+	path = backend/servers/timeseries-server
 	url = https://github.com/gridsuite/timeseries-server
 	branch = main
 [submodule "user-admin-server"]
-	path = user-admin-server
+	path = backend/servers/user-admin-server
 	url = https://github.com/gridsuite/user-admin-server
 	branch = main
 [submodule "voltage-init-server"]
-	path = voltage-init-server
+	path = backend/servers/voltage-init-server
 	url = https://github.com/gridsuite/voltage-init-server
 	branch = main
 [submodule "powsybl-case-datasource"]
-	path = powsybl-case-datasource
+	path = backend/libs/powsybl-case-datasource
 	url = https://github.com/powsybl/powsybl-case-datasource
 	branch = main
 [submodule "powsybl-case-server"]
-	path = powsybl-case-server
+	path = backend/servers/powsybl-case-server
 	url = https://github.com/powsybl/powsybl-case-server
 	branch = main
 [submodule "powsybl-dependencies"]
-	path = powsybl-dependencies
+	path = backend/build/powsybl-dependencies
 	url = https://github.com/powsybl/powsybl-dependencies
 	branch = main
 [submodule "powsybl-diagram"]
-	path = powsybl-diagram
+	path = backend/libs/powsybl-diagram
 	url = https://github.com/powsybl/powsybl-diagram
 	branch = main
 [submodule "powsybl-diagram-viewer"]
-	path = powsybl-diagram-viewer
+	path = frontend/libs/powsybl-diagram-viewer
 	url = https://github.com/powsybl/powsybl-diagram-viewer
 	branch = main
 [submodule "powsybl-network-store-server"]
-	path = powsybl-network-store-server
+	path = backend/servers/powsybl-network-store-server
 	url = https://github.com/powsybl/powsybl-network-store-server
 	branch = main
 [submodule "powsybl-network-hypothesis"]
-	path = powsybl-network-hypothesis
+	path = backend/libs/powsybl-network-hypothesis
 	url = https://github.com/powsybl/powsybl-network-hypothesis
 	branch = main
 [submodule "powsybl-ws-dependencies"]
-	path = powsybl-ws-dependencies
+	path = backend/build/powsybl-ws-dependencies
 	url = https://github.com/powsybl/powsybl-ws-dependencies
 	branch = main
