@@ -128,5 +128,29 @@ $ mvn install -Dpowsybl.docker.install \
 TODO: can enforce that there is no source code that is ignored in this step ?
 
 ### Full java recompile with modified build system (powsybl-parent)
-TODO. It should be possible by modifying the relativePath and the parent version in all projects.
-TODO. can this be automated ?
+TODO. can this be done without modifying files ?
+
+To use a modified parent, modify the relativePath and the parent version in the tested projects:
+```
+     <parent>
+         <groupId>com.powsybl</groupId>
+         <artifactId>powsybl-parent-ws</artifactId>
+-        <version>12</version>
+-        <relativePath/>
++        <version>14-SNAPSHOT</version>
++        <relativePath>../../build/powsybl-parent/powsybl-parent/powsybl-parent-ws</relativePath>
+     </parent>
+```
+
+```
+$ mvn package -pl servers/study-server/ -am
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] Powsybl                                                            [pom]
+[INFO] Powsybl Build Tools                                                [jar]
+[INFO] Powsybl Parent                                                     [pom]
+[INFO] Powsybl Parent WS                                                  [pom]
+[INFO] Study Server                                                       [jar]
+```
