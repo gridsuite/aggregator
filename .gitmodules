@@ -290,3 +290,7 @@
 	path = backend/build/powsybl-ws-dependencies
 	url = https://github.com/powsybl/powsybl-ws-dependencies
 	branch = main
+[submodule "backend/libs/powsybl-optimizer"]
+	path = backend/libs/powsybl-optimizer
+	url = https://github.com/powsybl/powsybl-optimizer
+	branch = main

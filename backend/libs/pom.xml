@@ -30,6 +30,7 @@
         <module>powsybl-network-hypothesis</module>
         <module>powsybl-network-store</module>
         <module>powsybl-open-loadflow</module>
+        <module>powsybl-optimizer</module>
         <module>powsybl-ws-commons</module>
     </modules>
 
