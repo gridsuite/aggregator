@@ -35,7 +35,7 @@ $ mvn package -pl servers/study-server -am \
   -Dpowsybl-ws-commons.version=1.6.0-SNAPSHOT \
   -Dpowsybl-ws-dependencies.version=2.4.0-SNAPSHOT \
   -Dpowsybl-core.version=6.0.0-SNAPSHOT \
-  -Dorg.gridsuite.dependencies=26-SNAPSHOT \
+  -Dgridsuite-dependencies.version=26-SNAPSHOT \
   -Dpowsybl-dependencies.version=2023.3.0-SNAPSHOT \
   -Dpowsybl-open-loadflow.version=1.3.0-SNAPSHOT \
   -Dpowsybl-diagram.version=4.0.0-SNAPSHOT \
@@ -115,7 +115,7 @@ $ mvn install -Dpowsybl.docker.install \
   -Dpowsybl-ws-commons.version=1.6.0-SNAPSHOT \
   -Dpowsybl-ws-dependencies.version=2.4.0-SNAPSHOT \
   -Dpowsybl-core.version=6.0.0-SNAPSHOT \
-  -Dorg.gridsuite.dependencies=26-SNAPSHOT \
+  -Dgridsuite-dependencies.version=26-SNAPSHOT \
   -Dpowsybl-dependencies.version=2023.3.0-SNAPSHOT \
   -Dpowsybl-open-loadflow.version=1.3.0-SNAPSHOT \
   -Dpowsybl-diagram.version=4.0.0-SNAPSHOT \
