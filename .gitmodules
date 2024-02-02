@@ -294,3 +294,6 @@
 	path = backend/libs/powsybl-optimizer
 	url = https://github.com/powsybl/powsybl-optimizer
 	branch = main
+[submodule "frontend/apps/gridadmin-app"]
+	path = frontend/apps/gridadmin-app
+	url = https://github.com/gridsuite/gridadmin-app.git
