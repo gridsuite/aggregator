@@ -297,3 +297,4 @@
 [submodule "frontend/apps/gridadmin-app"]
 	path = frontend/apps/gridadmin-app
 	url = https://github.com/gridsuite/gridadmin-app.git
+	branch = main
