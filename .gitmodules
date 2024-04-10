@@ -298,3 +298,7 @@
 	path = frontend/apps/gridadmin-app
 	url = https://github.com/gridsuite/gridadmin-app.git
 	branch = main
+[submodule "backend/libs/filter"]
+	path = backend/libs/filter
+	url = https://github.com/gridsuite/filter
+	branch = main
