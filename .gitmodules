@@ -302,3 +302,7 @@
 	path = backend/libs/filter
 	url = https://github.com/gridsuite/filter
 	branch = main
+[submodule "backend/servers/spreadsheet-config-server"]
+	path = backend/servers/spreadsheet-config-server
+	url = https://github.com/gridsuite/spreadsheet-config-server
+	branch = main

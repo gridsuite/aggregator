@@ -56,6 +56,7 @@
         <module>timeseries-server</module>
         <module>user-admin-server</module>
         <module>voltage-init-server</module>
+        <module>spreadsheet-config-server</module>
     </modules>
 
 </project>
