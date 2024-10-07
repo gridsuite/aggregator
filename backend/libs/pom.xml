@@ -21,6 +21,7 @@
     <description>Aggregator libs</description>
 
     <modules>
+        <module>filter</module>
         <module>powsybl-case-datasource</module>
         <module>powsybl-core</module>
         <module>powsybl-diagram</module>
