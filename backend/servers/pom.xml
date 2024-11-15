@@ -57,6 +57,7 @@
         <module>timeseries-server</module>
         <module>user-admin-server</module>
         <module>voltage-init-server</module>
+        <module>user-identity-oidc-replication-server</module>
     </modules>
 
 </project>

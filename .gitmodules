@@ -306,3 +306,6 @@
 	path = backend/servers/spreadsheet-config-server
 	url = https://github.com/gridsuite/spreadsheet-config-server
 	branch = main
+[submodule "user-identity-oidc-replication-server"]
+	path = backend/servers/user-identity-oidc-replication-server
+	url = https://github.com/gridsuite/user-identity-oidc-replication-server
