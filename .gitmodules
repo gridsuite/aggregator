@@ -178,7 +178,7 @@
 	path = backend/servers/dynamic-simulation-server
 	url = https://github.com/gridsuite/dynamic-simulation-server
 	branch = main
-[submodule "backend/servers/dynamic-security-analysis-server"]
+[submodule "dynamic-security-analysis-server"]
 	path = backend/servers/dynamic-security-analysis-server
 	url = https://github.com/gridsuite/dynamic-security-analysis-server
 [submodule "cgmes-boundary-import-job"]
