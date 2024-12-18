@@ -305,9 +305,9 @@
 	path = backend/libs/filter
 	url = https://github.com/gridsuite/filter
 	branch = main
-[submodule "backend/servers/spreadsheet-config-server"]
-	path = backend/servers/spreadsheet-config-server
-	url = https://github.com/gridsuite/spreadsheet-config-server
+[submodule "backend/servers/study-config-server"]
+	path = backend/servers/study-config-server
+	url = https://github.com/gridsuite/study-config-server
 	branch = main
 [submodule "user-identity-oidc-replication-server"]
 	path = backend/servers/user-identity-oidc-replication-server
