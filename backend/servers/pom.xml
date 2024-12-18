@@ -52,7 +52,7 @@
         <module>security-analysis-server</module>
         <module>sensitivity-analysis-server</module>
         <module>shortcircuit-server</module>
-        <module>spreadsheet-config-server</module>
+        <module>study-config-server</module>
         <module>study-notification-server</module>
         <module>study-server</module>
         <module>timeseries-server</module>
