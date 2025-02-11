@@ -181,6 +181,7 @@
 [submodule "dynamic-security-analysis-server"]
 	path = backend/servers/dynamic-security-analysis-server
 	url = https://github.com/gridsuite/dynamic-security-analysis-server
+	branch = main
 [submodule "cgmes-boundary-import-job"]
 	path = backend/jobs/cgmes-boundary-import-job
 	url = https://github.com/gridsuite/cgmes-boundary-import-job
@@ -312,3 +313,4 @@
 [submodule "user-identity-oidc-replication-server"]
 	path = backend/servers/user-identity-oidc-replication-server
 	url = https://github.com/gridsuite/user-identity-oidc-replication-server
+	branch = main
