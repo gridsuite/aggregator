@@ -1,0 +1,3 @@
+{
+  "workspaces": ["apps/gridstudy-app", "apps/gridexplore-app", "apps/gridadmin-app", "libs/*"]
+}
