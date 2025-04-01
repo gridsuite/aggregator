@@ -314,3 +314,7 @@
 	path = backend/servers/user-identity-oidc-replication-server
 	url = https://github.com/gridsuite/user-identity-oidc-replication-server
 	branch = main
+[submodule "backend/libs/network-modification"]
+	path = backend/libs/network-modification
+	url = https://github.com/gridsuite/network-modification
+	branch = main
