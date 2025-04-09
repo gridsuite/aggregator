@@ -393,3 +393,8 @@
 	url = https://github.com/gridsuite/user-identity-oidc-replication-server
 	branch = main
     ignore = all
+[submodule "backend/libs/network-modification"]
+	path = backend/libs/network-modification
+	url = https://github.com/gridsuite/network-modification
+	branch = main
+    ignore = all
