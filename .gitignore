@@ -1,0 +1,10 @@
+# VSCode
+/.vscode
+/.settings
+.classpath
+.factorypath
+.project
+
+# IntelliJ
+/.idea
+*.iml
