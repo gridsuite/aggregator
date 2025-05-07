@@ -27,6 +27,12 @@ $ mvn package -pl servers/study-server -am -Dpowsybl-ws-commons.version=1.6.0-SN
 [INFO] Study Server                                                       [jar]
 ```
 
+### Faster Multithreaded compile (useful for the long subsequent commands)
+
+add `-T 2.0C` (optionally adjust the number of threads) to the mvn command line flags to build in parallel.
+This has the downside of interleaving the output of all builds. An alternative is to use `mvnd` which displays
+an interactive progress and dumps all the build logs at the end in the correct order and has `-T2.0C` on by default and starts faster.
+
 ### Full java recompile for one project and dependencies
 A full java recompile for all dependent libs for one project can be done like this (adapt version numbers to match current versions in source poms)
 ```
@@ -106,6 +112,20 @@ $ mvn package -pl servers/study-server -am \
 TODO: can the version finding be automated?
 TODO: should we use .mvn/maven.config to record versions and maintain the list ?
 
+### Rebuild only all docker images
+
+```
+# in maven4, aggregators automatically represent their reactor children
+$ cd backend/servers
+$ mvn install -Dpowsybl.docker.install
+```
+
+```
+# maven3, semi manual hack project list with ls, to be tweaked to have the correct project list
+$ cd backend/servers
+$ mvn install -Dpowsybl.docker.install \
+  -pl $(echo $(ls -d */) | sed -e 's/ /,/g')
+```
 
 ### Full java recompile for all docker images
 A full java recompile and docker image generation for all projects
