@@ -38,7 +38,8 @@ jobs:
             /release =/ {release=$3}
             /^\[/ && release=="true" && url!="" {print url}
             END { if (release=="true" && url!="") print url }
-          ' .gitmodules | while read -r path url; do
+          ' .gitmodules | while read -r url; do
+              echo $url
               if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
                   org="${BASH_REMATCH[1]}"
                   repo="${BASH_REMATCH[2]}"
