@@ -3,3 +3,4 @@
 	url = https://github.com/gridsuite/test-ci-cd
 	branch = main
 	ignore = all
+	release = true

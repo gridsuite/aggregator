@@ -33,11 +33,11 @@ jobs:
       - name: Lister les SHAs
         run: |
           awk '
-            /^\[submodule/ { url=""; build="" }
+            /^\[submodule/ { url=""; release="" }
             /url =/ {url=$3}
-            /build =/ {build=$3}
-            /^\[/ && build=="true" && url!="" {print url}
-            END { if (build=="true" && url!="") print url }
+            /release =/ {release=$3}
+            /^\[/ && release=="true" && url!="" {print url}
+            END { if (release=="true" && url!="") print url }
           ' .gitmodules | while read -r path url; do
               if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
                   org="${BASH_REMATCH[1]}"
