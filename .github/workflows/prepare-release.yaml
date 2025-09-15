@@ -1,0 +1,63 @@
+name: Prepare release
+on:
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
+        required: false
+
+jobs:
+  list-shas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout aggregator repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Auth GH CLI
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Extract last commit date (last friday 23:59 UTC if left empty)
+        id: date
+        run: |
+          if [ -z "${{ github.event.inputs.target_date }}" ]; then
+            date_value=$(date -u -d "last friday 23:59" +"%Y-%m-%dT%H:%M:%SZ")
+          else
+            date_value="${{ github.event.inputs.target_date }}"
+          fi
+          echo "date_value=$date_value" >> $GITHUB_OUTPUT
+          echo "This limit date will be used : $date_value"
+
+      - name: Lister les SHAs
+        run: |
+          awk '
+            /^\[submodule/ { url=""; build="" }
+            /url =/ {url=$3}
+            /build =/ {build=$3}
+            /^\[/ && build=="true" && url!="" {print url}
+            END { if (build=="true" && url!="") print url }
+          ' .gitmodules | while read -r path url; do
+              if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
+                  org="${BASH_REMATCH[1]}"
+                  repo="${BASH_REMATCH[2]}"
+              else
+                  echo "❌ Could not parse repository url : $url"
+                  continue
+              fi
+
+              commit=$(gh api repos/$org/$repo/commits \
+                -f until="${{ steps.date.outputs.date_value }}" \
+                -F per_page=1 \
+                --jq '.[0] | {sha: .sha, message: .commit.message}')
+
+              sha=$(echo "$commit" | jq -r .sha | cut -c1-7)
+              msg=$(echo "$commit" | jq -r .message | head -n1 | cut -c1-60)
+
+              if [[ -z "$sha" || "$sha" == "null" ]]; then
+                  echo "❌ Aucun commit trouvé pour $repo avant ${{ steps.date.outputs.date_value }}"
+                  continue
+              fi
+
+              echo "✅ $repo → $sha | $msg"
+          done
