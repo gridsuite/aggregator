@@ -1,6 +1,6 @@
-[submodule "test-ci-cd"]
-	path = backend/libs/test-ci-cd
-	url = https://github.com/gridsuite/test-ci-cd
+[submodule "ci-cd-test"]
+	path = backend/libs/ci-cd-test
+	url = https://github.com/gridsuite/ci-cd-test
 	branch = main
 	ignore = all
 	release = true

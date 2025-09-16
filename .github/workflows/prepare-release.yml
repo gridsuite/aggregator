@@ -30,7 +30,7 @@ jobs:
           echo "date_value=$date_value" >> $GITHUB_OUTPUT
           echo "This limit date will be used : $date_value"
 
-      - name: Lister les SHAs
+      - name: Lister les SHAs des commits
         run: |
           awk '
             /^\[submodule/ { url=""; release="" }
@@ -39,7 +39,6 @@ jobs:
             /^\[/ && release=="true" && url!="" {print url}
             END { if (release=="true" && url!="") print url }
           ' .gitmodules | while read -r url; do
-              echo $url
               if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
                   org="${BASH_REMATCH[1]}"
                   repo="${BASH_REMATCH[2]}"
@@ -47,9 +46,9 @@ jobs:
                   echo "❌ Could not parse repository url : $url"
                   continue
               fi
-
               commit=$(gh api repos/$org/$repo/commits \
-                -f until="${{ steps.date.outputs.date_value }}" \
+                --method GET \
+                -f until="2025-09-12T23:59:00Z" \
                 -F per_page=1 \
                 --jq '.[0] | {sha: .sha, message: .commit.message}')
 
@@ -57,7 +56,7 @@ jobs:
               msg=$(echo "$commit" | jq -r .message | head -n1 | cut -c1-60)
 
               if [[ -z "$sha" || "$sha" == "null" ]]; then
-                  echo "❌ Aucun commit trouvé pour $repo avant ${{ steps.date.outputs.date_value }}"
+                  echo "❌ Aucun commit trouvé pour $repo avant last friday"
                   continue
               fi
 
