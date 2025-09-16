@@ -9,9 +9,12 @@ on:
       target_date:
         description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
         required: false
+      release-version:
+        description: "Version for new tag (ex: v2.8.0)"
+        required: true
 
 jobs:
-  list-shas:
+  prepare-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout aggregator repository
@@ -38,7 +41,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Extract last commit date (last friday 23:59 UTC if left empty)
-        id: date
+        id: load_date
         run: |
           if [ -z "${{ github.event.inputs.target_date }}" ]; then
             date_value=$(date -u -d "last friday 23:59" +"%Y-%m-%dT%H:%M:%SZ")
@@ -50,28 +53,32 @@ jobs:
 
       - name: Lister les SHAs des commits
         run: |
+          mkdir public_repos
+          cd public_repos
+
           while read url; do
-              if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
-                  org="${BASH_REMATCH[1]}"
-                  repo="${BASH_REMATCH[2]}"
-                  repo="${repo%.git}"
-              else
-                  echo "❌ Could not parse repository url : $url"
-                  continue
+              git clone $url
+              folder=$(basename "$url" .git)
+              cd $folder
+              commit_date='${{ steps.load_date.outputs.date_value }}''
+              commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
+              git checkout $commit_hash
+
+              branch_name="prepare-release-${{github.event.inputs.release-version}}"
+              # Check if *branch_name* already exists
+              if git show-ref --verify --quiet "refs/heads/$branch_name"; then
+                  echo "❌ Warning for $folder: Branch $branch_name already exists"
+                  exit 1
               fi
-              commit=$(gh api repos/$org/$repo/commits \
-                --method GET \
-                -f until="2025-09-12T23:59:00Z" \
-                -F per_page=1 \
-                --jq '.[0] | {sha: .sha, message: .commit.message}')
+              git checkout -b "$branch_name"
 
-              sha=$(echo "$commit" | jq -r .sha | cut -c1-7)
-              msg=$(echo "$commit" | jq -r .message | head -n1 | cut -c1-60)
-
-              if [[ -z "$sha" || "$sha" == "null" ]]; then
-                  echo "❌ Aucun commit trouvé pour $repo avant last friday"
-                  continue
+              if ! git push origin "$branch_name"; then
+                  echo "❌ Error for $folder: Failed to push $branch_name"
+                  exit 1
               fi
 
-              echo "✅ $repo → $sha | $msg"
+              commit_message=$(git log -1 --pretty=%s | cut -c1-50)
+
+              echo "✅ $folder tagged → $commit_hash | $commit_message"
+              cd - > /dev/null
           done <<< "${{ steps.load_repos.outputs.list }}"
