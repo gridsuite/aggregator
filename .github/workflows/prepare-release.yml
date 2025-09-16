@@ -60,7 +60,7 @@ jobs:
               git clone $url
               folder=$(basename "$url" .git)
               cd $folder
-              commit_date='${{ steps.load_date.outputs.date_value }}''
+              commit_date='${{ steps.load_date.outputs.date_value }}'
               commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
               git checkout $commit_hash
 
