@@ -2,6 +2,40 @@ name: Prepare release
 on:
   workflow_dispatch:
     inputs:
+      repos_to_release:
+        description: "List of repositories to release"
+        default: |
+          https://github.com/gridsuite/actions-server
+          https://github.com/gridsuite/admin-tools
+          https://github.com/gridsuite/cgmes-gl-server
+          https://github.com/gridsuite/config-notification-server
+          https://github.com/gridsuite/config-server
+          https://github.com/gridsuite/deployment
+          https://github.com/gridsuite/directory-notification-server
+          https://github.com/gridsuite/directory-server
+          https://github.com/gridsuite/explore-server
+          https://github.com/gridsuite/filter-server
+          https://github.com/gridsuite/gateway
+          https://github.com/gridsuite/geo-data-server
+          https://github.com/gridsuite/gridadmin-app
+          https://github.com/gridsuite/gridexplore-app
+          https://github.com/gridsuite/gridstudy-app
+          https://github.com/gridsuite/loadflow-server
+          https://github.com/gridsuite/network-map-server
+          https://github.com/gridsuite/network-modification-server
+          https://github.com/gridsuite/odre-server
+          https://github.com/gridsuite/report-server
+          https://github.com/gridsuite/security-analysis-server
+          https://github.com/gridsuite/study-config-server
+          https://github.com/gridsuite/study-server
+          https://github.com/gridsuite/study-notification-server
+          https://github.com/gridsuite/user-admin-server
+          https://github.com/gridsuite/sensitivity-analysis-server
+          https://github.com/gridsuite/shortcircuit-server
+          https://github.com/gridsuite/voltage-init-server
+          https://github.com/gridsuite/case-import-server
+          https://github.com/gridsuite/user-identity-oidc-replication-server
+
       target_date:
         description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
         required: false
@@ -32,16 +66,11 @@ jobs:
 
       - name: Lister les SHAs des commits
         run: |
-          awk '
-            /^\[submodule/ { url=""; release="" }
-            /url =/ {url=$3}
-            /release =/ {release=$3}
-            /^\[/ && release=="true" && url!="" {print url}
-            END { if (release=="true" && url!="") print url }
-          ' .gitmodules | while read -r url; do
+          while read url; do
               if [[ "$url" =~ github.com[:/]+([^/]+)/([^/]+)(\.git)?$ ]]; then
                   org="${BASH_REMATCH[1]}"
                   repo="${BASH_REMATCH[2]}"
+                  repo="${repo%.git}"
               else
                   echo "❌ Could not parse repository url : $url"
                   continue
@@ -61,4 +90,4 @@ jobs:
               fi
 
               echo "✅ $repo → $sha | $msg"
-          done
+          done <<< "${{ github.event.inputs.repos_to_release }}"

@@ -2,12 +2,12 @@
 	path = backend/libs/powsybl-core
 	url = https://github.com/powsybl/powsybl-core
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-math-native"]
 	path = backend/libs/powsybl-math-native
 	url = https://github.com/powsybl/powsybl-math-native
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-dynawo"]
 	path = backend/libs/powsybl-dynawo
 	url = https://github.com/powsybl/powsybl-dynawo
@@ -63,13 +63,11 @@
 	url = https://github.com/gridsuite/study-server
 	branch = main
     ignore = all
-	release = true
 [submodule "network-map-server"]
 	path = backend/servers/network-map-server
 	url = https://github.com/gridsuite/network-map-server
 	branch = main
     ignore = all
-	release = true
 [submodule "deployment"]
 	path = tools/deployment
 	url = https://github.com/gridsuite/deployment
@@ -80,7 +78,6 @@
 	url = https://github.com/gridsuite/gridstudy-app
 	branch = main
     ignore = all
-	release = true
 [submodule "odre-server"]
 	path = backend/servers/odre-server
 	url = https://github.com/gridsuite/odre-server
@@ -101,19 +98,16 @@
 	url = https://github.com/gridsuite/network-modification-server
 	branch = main
     ignore = all
-	release = true
 [submodule "gateway"]
 	path = backend/servers/gateway
 	url = https://github.com/gridsuite/gateway
 	branch = main
     ignore = all
-	release = true
 [submodule "geo-data-app"]
 	path = frontend/apps/geo-data-app
 	url = https://github.com/gridsuite/geo-data-app
 	branch = main
     ignore = all
-	release = true
 [submodule "gridsuite.github.io"]
 	path = docs/gridsuite.github.io
 	url = https://github.com/gridsuite/gridsuite.github.io
@@ -134,7 +128,6 @@
 	url = https://github.com/gridsuite/loadflow-server
 	branch = main
     ignore = all
-	release = true
 [submodule "balances-adjustment-server"]
 	path = backend/servers/balances-adjustment-server
 	url = https://github.com/gridsuite/balances-adjustment-server
@@ -190,13 +183,11 @@
 	url = https://github.com/gridsuite/actions-server
 	branch = main
     ignore = all
-	release = true
 [submodule "security-analysis-server"]
 	path = backend/servers/security-analysis-server
 	url = https://github.com/gridsuite/security-analysis-server
 	branch = main
     ignore = all
-	release = true
 [submodule "gridactions-app"]
 	path = frontend/apps/gridactions-app
 	url = https://github.com/gridsuite/gridactions-app
@@ -212,19 +203,16 @@
 	url = https://github.com/gridsuite/config-server
 	branch = main
     ignore = all
-	release = true
 [submodule "config-notification-server"]
 	path = backend/servers/config-notification-server
 	url = https://github.com/gridsuite/config-notification-server
 	branch = main
     ignore = all
-	release = true
 [submodule "directory-server"]
 	path = backend/servers/directory-server
 	url = https://github.com/gridsuite/directory-server
 	branch = main
     ignore = all
-	release = true
 [submodule "java-dynawo-docker"]
 	path = docker/java-dynawo-docker
 	url = https://github.com/gridsuite/java-dynawo-docker
@@ -255,37 +243,31 @@
 	url = https://github.com/gridsuite/filter-server
 	branch = main
     ignore = all
-	release = true
 [submodule "dynamic-mapping-server"]
 	path = backend/servers/dynamic-mapping-server
 	url = https://github.com/gridsuite/dynamic-mapping-server
 	branch = main
     ignore = all
-	release = true
 [submodule "report-server"]
 	path = backend/servers/report-server
 	url = https://github.com/gridsuite/report-server
 	branch = main
     ignore = all
-	release = true
 [submodule "gridexplore-app"]
 	path = frontend/apps/gridexplore-app
 	url = https://github.com/gridsuite/gridexplore-app
 	branch = main
     ignore = all
-	release = true
 [submodule "directory-notification-server"]
 	path = backend/servers/directory-notification-server
 	url = https://github.com/gridsuite/directory-notification-server
 	branch = main
     ignore = all
-	release = true
 [submodule "explore-server"]
 	path = backend/servers/explore-server
 	url = https://github.com/gridsuite/explore-server
 	branch = main
     ignore = all
-	release = true
 [submodule "documentation"]
 	path = docs/documentation
 	url = https://github.com/gridsuite/documentation
@@ -296,7 +278,6 @@
 	url = https://github.com/gridsuite/case-import-server
 	branch = main
     ignore = all
-	release = true
 [submodule "cgmes-gl-server"]
 	path = backend/servers/cgmes-gl-server
 	url = https://github.com/gridsuite/cgmes-gl-server
@@ -307,7 +288,6 @@
 	url = https://github.com/gridsuite/geo-data-server
 	branch = main
     ignore = all
-	release = true
 [submodule "admin-tools"]
 	path = tools/admin-tools
 	url = https://github.com/gridsuite/admin-tools
@@ -323,37 +303,31 @@
 	url = https://github.com/gridsuite/sensitivity-analysis-server
 	branch = main
     ignore = all
-	release = true
 [submodule "shortcircuit-server"]
 	path = backend/servers/shortcircuit-server
 	url = https://github.com/gridsuite/shortcircuit-server
 	branch = main
     ignore = all
-	release = true
 [submodule "study-notification-server"]
 	path = backend/servers/study-notification-server
 	url = https://github.com/gridsuite/study-notification-server
 	branch = main
     ignore = all
-	release = true
 [submodule "timeseries-server"]
 	path = backend/servers/timeseries-server
 	url = https://github.com/gridsuite/timeseries-server
 	branch = main
     ignore = all
-	release = true
 [submodule "user-admin-server"]
 	path = backend/servers/user-admin-server
 	url = https://github.com/gridsuite/user-admin-server
 	branch = main
     ignore = all
-	release = true
 [submodule "voltage-init-server"]
 	path = backend/servers/voltage-init-server
 	url = https://github.com/gridsuite/voltage-init-server
 	branch = main
     ignore = all
-	release = true
 [submodule "powsybl-case-datasource"]
 	path = backend/libs/powsybl-case-datasource
 	url = https://github.com/powsybl/powsybl-case-datasource
@@ -404,7 +378,6 @@
 	url = https://github.com/gridsuite/gridadmin-app.git
 	branch = main
     ignore = all
-	release = true
 [submodule "backend/libs/filter"]
 	path = backend/libs/filter
 	url = https://github.com/gridsuite/filter
@@ -415,13 +388,11 @@
 	url = https://github.com/gridsuite/study-config-server
 	branch = main
     ignore = all
-	release = true
 [submodule "user-identity-oidc-replication-server"]
 	path = backend/servers/user-identity-oidc-replication-server
 	url = https://github.com/gridsuite/user-identity-oidc-replication-server
 	branch = main
     ignore = all
-	release = true
 [submodule "backend/libs/network-modification"]
 	path = backend/libs/network-modification
 	url = https://github.com/gridsuite/network-modification
