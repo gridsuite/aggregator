@@ -3,39 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       repos_to_release:
-        description: "List of repositories to release"
-        default: |
-          https://github.com/gridsuite/actions-server
-          https://github.com/gridsuite/admin-tools
-          https://github.com/gridsuite/cgmes-gl-server
-          https://github.com/gridsuite/config-notification-server
-          https://github.com/gridsuite/config-server
-          https://github.com/gridsuite/deployment
-          https://github.com/gridsuite/directory-notification-server
-          https://github.com/gridsuite/directory-server
-          https://github.com/gridsuite/explore-server
-          https://github.com/gridsuite/filter-server
-          https://github.com/gridsuite/gateway
-          https://github.com/gridsuite/geo-data-server
-          https://github.com/gridsuite/gridadmin-app
-          https://github.com/gridsuite/gridexplore-app
-          https://github.com/gridsuite/gridstudy-app
-          https://github.com/gridsuite/loadflow-server
-          https://github.com/gridsuite/network-map-server
-          https://github.com/gridsuite/network-modification-server
-          https://github.com/gridsuite/odre-server
-          https://github.com/gridsuite/report-server
-          https://github.com/gridsuite/security-analysis-server
-          https://github.com/gridsuite/study-config-server
-          https://github.com/gridsuite/study-server
-          https://github.com/gridsuite/study-notification-server
-          https://github.com/gridsuite/user-admin-server
-          https://github.com/gridsuite/sensitivity-analysis-server
-          https://github.com/gridsuite/shortcircuit-server
-          https://github.com/gridsuite/voltage-init-server
-          https://github.com/gridsuite/case-import-server
-          https://github.com/gridsuite/user-identity-oidc-replication-server
-
+        description: "Manual list of repositories to release (.github/config/repos-to-release.txt content if left empty)"
+        default: ""
+        required: false
       target_date:
         description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
         required: false
@@ -52,6 +22,20 @@ jobs:
 
       - name: Auth GH CLI
         run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Load repo list from file or input
+        id: load_repos
+        run: |
+          if [[ -z "${{ github.event.inputs.repos_to_release }}" ]]; then
+            echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
+            list="$(cat .github/config/repos-to-release.txt)"
+          else
+            echo "ℹ️ Input found → load user input"
+            list="${{ github.event.inputs.repos_to_release }}"
+          fi
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$list" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Extract last commit date (last friday 23:59 UTC if left empty)
         id: date
@@ -90,4 +74,4 @@ jobs:
               fi
 
               echo "✅ $repo → $sha | $msg"
-          done <<< "${{ github.event.inputs.repos_to_release }}"
+          done <<< "${{ steps.load_repos.outputs.list }}"
