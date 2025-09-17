@@ -76,7 +76,7 @@ jobs:
             branch_name=${{github.event.inputs.branch_name}}
 
             gh workflow run release.yml \
-              -f ref=main \
+              --ref main \
               -f releaseVersion="$version"
               -f gitReference="$branch_name"
 
