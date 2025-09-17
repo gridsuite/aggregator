@@ -12,6 +12,9 @@ on:
       release-version:
         description: "Version for new tag (ex: v2.8.0)"
         required: true
+    secrets:
+      VERSIONBUMP_GHAPP_PRIVATE_KEY:
+        required: true
 
 jobs:
   prepare-release:
@@ -88,13 +91,11 @@ jobs:
               # Check if *branch_name* already exists
               if git ls-remote --exit-code origin "refs/heads/$branch_name"; then
                   echo "❌ Warning for $folder: Branch $branch_name already exists"
-                  exit 1
               fi
               git checkout -b "$branch_name"
 
               if ! git push origin "$branch_name"; then
                   echo "❌ Error for $folder: Failed to push $branch_name"
-                  exit 1
               fi
 
               commit_message=$(git log -1 --pretty=%s | cut -c1-50)
