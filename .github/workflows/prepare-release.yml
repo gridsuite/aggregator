@@ -32,6 +32,7 @@ jobs:
         with:
           app-id: ${{ vars.GRIDSUITE_ACTIONS_APPID }}
           private-key: ${{ secrets.VERSIONBUMP_GHAPP_PRIVATE_KEY }}
+          owner: gridsuite
 
       - name: Get GitHub App User ID
         id: get-user-id
@@ -49,16 +50,6 @@ jobs:
         env:
           RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
           RUNGHA_USER_ID: ${{ steps.get-user-id.outputs.user-id }} # just for defense against script injection
-
-      - name: Debug App installation token
-        run: |
-          echo "➡️ Repos accessibles par cette installation :"
-          gh api /installation/repositories --jq '.repositories[].full_name'
-          echo
-          echo "➡️ Vérification accès à ci-cd-test :"
-          gh api /repos/gridsuite/ci-cd-test || echo "❌ Pas d'accès"
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Load repo list from file or input
         id: load_repos
