@@ -23,8 +23,27 @@ jobs:
           submodules: false
           ref: release-workflow
 
-      - name: Auth GH CLI
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+      - uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1 v1.11.6
+        id: app-token
+        name: Generate app token
+        with:
+          app-id: ${{ vars.GRIDSUITE_ACTIONS_APPID }}
+          private-key: ${{ secrets.VERSIONBUMP_GHAPP_PRIVATE_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${RUNGHA_APP_SLUG}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
+
+      - name: Setup git user
+        run: |
+          git config --global user.name "${RUNGHA_APP_SLUG}[bot]"
+          git config --global user.email "${RUNGHA_USER_ID}+${RUNGHA_APP_SLUG}[bot]@users.noreply.github.com"
+        env:
+          RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
+          RUNGHA_USER_ID: ${{ steps.get-user-id.outputs.user-id }} # just for defense against script injection
 
       - name: Load repo list from file or input
         id: load_repos
@@ -57,16 +76,17 @@ jobs:
           cd public_repos
 
           while read url; do
-              git clone $url
+              url_with_token="${url/https:\/\/github.com/https:\/\/x-access-token:${TOKEN}@github.com}"
+              git clone "$url_with_token"
               folder=$(basename "$url" .git)
               cd $folder
-              commit_date='${{ steps.load_date.outputs.date_value }}'
+              commit_date="${{ steps.load_date.outputs.date_value }}"
               commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
               git checkout $commit_hash
 
               branch_name="prepare-release-${{github.event.inputs.release-version}}"
               # Check if *branch_name* already exists
-              if git show-ref --verify --quiet "refs/heads/$branch_name"; then
+              if git ls-remote --exit-code origin "refs/heads/$branch_name"; then
                   echo "❌ Warning for $folder: Branch $branch_name already exists"
                   exit 1
               fi
@@ -79,6 +99,8 @@ jobs:
 
               commit_message=$(git log -1 --pretty=%s | cut -c1-50)
 
-              echo "✅ $folder tagged → $commit_hash | $commit_message"
+              echo "✅ $folder : $branch_name branch created → $commit_hash | $commit_message"
               cd - > /dev/null
           done <<< "${{ steps.load_repos.outputs.list }}"
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
