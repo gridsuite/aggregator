@@ -71,12 +71,14 @@ jobs:
             version=${{github.event.inputs.release-version}}
             branch_name=${{github.event.inputs.branch-name}}
 
-            gh workflow run release.yml \
-              --ref main \
-              -f releaseVersion="$version" \
-              -f gitReference="$branch_name"
+            owner=$(echo "$url" | cut -d/ -f4)
+            repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
 
-            cd -
+            gh api repos/$owner/$repo/actions/workflows/release.yml/dispatches \
+              -f ref=main \
+              -f inputs[releaseVersion]="$version" \
+              -f inputs[gitReference]="$branch_name"
+              
           done <<< "${{ steps.load_repos.outputs.list }}"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
