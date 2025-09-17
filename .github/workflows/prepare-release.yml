@@ -36,7 +36,7 @@ jobs:
       - name: Get GitHub App User ID
         id: get-user-id
         run: | 
-          echo gh api "/users/${RUNGHA_APP_SLUG}[bot]"
+          echo $(gh api "/users/${RUNGHA_APP_SLUG}[bot]")
           echo "user-id=$(gh api "/users/${RUNGHA_APP_SLUG}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
