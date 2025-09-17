@@ -7,7 +7,7 @@ on:
         description: Release version (vX.X)
         required: true
         type: string
-      branch_name:
+      branch-name:
         description: Branch to release (prepare-release-X.X)
         required: true
         type: string
@@ -73,7 +73,7 @@ jobs:
             cd $folder
 
             version=${{github.event.inputs.release-version}}
-            branch_name=${{github.event.inputs.branch_name}}
+            branch_name=${{github.event.inputs.branch-name}}
 
             gh workflow run release.yml \
               --ref main \
