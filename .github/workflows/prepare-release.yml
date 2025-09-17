@@ -48,6 +48,16 @@ jobs:
           RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
           RUNGHA_USER_ID: ${{ steps.get-user-id.outputs.user-id }} # just for defense against script injection
 
+      - name: Debug App permissions
+        run: |
+          echo "➡️ Installations visibles par ce token :"
+          gh api /user/installations --jq '.installations[] | {account: .account.login, repos: .repository_selection, permissions: .permissions}'
+          echo
+          echo "➡️ Accès direct au repo ci-cd-test :"
+          gh api /repos/gridsuite/ci-cd-test || echo "❌ Pas d'accès"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
       - name: Load repo list from file or input
         id: load_repos
         run: |
