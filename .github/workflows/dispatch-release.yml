@@ -67,17 +67,13 @@ jobs:
       - name: Create tags and trigger release workflows
         run: |
           while read url; do
-            url_with_token="${url/https:\/\/github.com/https:\/\/x-access-token:${GH_TOKEN}@github.com}"
-            git clone "$url_with_token"
-            folder=$(basename "$url" .git)
-            cd $folder
 
             version=${{github.event.inputs.release-version}}
             branch_name=${{github.event.inputs.branch-name}}
 
             gh workflow run release.yml \
               --ref main \
-              -f releaseVersion="$version"
+              -f releaseVersion="$version" \
               -f gitReference="$branch_name"
 
             cd -
