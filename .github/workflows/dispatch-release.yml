@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       release-version:
-        description: Release version (X.X)
+        description: Release version (vX.X)
+        required: true
+        type: string
+      branch_name:
+        description: Branch to release (prepare-release-X.X)
         required: true
         type: string
 
@@ -69,24 +73,12 @@ jobs:
             cd $folder
 
             version=${{github.event.inputs.release-version}}
-            branch_name="prepare-release-$version"
-            # Check if *branch_name* already exists
-            if ! git ls-remote --exit-code origin "refs/heads/$branch_name"; then
-                echo "❌ Warning for $folder: Branch $branch_name does not exist"
-                exit 1
-            fi
-            git checkout "$branch_name"
+            branch_name=${{github.event.inputs.branch_name}}
 
-            tag_name="v$version"
-            # Créer le tag
-            git tag "$tag_name"
-
-            # Pousser le tag
-            git push origin "$tag_name"
-
-            gh api repos/gridsuite/$folder/actions/workflows/release.yml/dispatches \
+            gh workflow run release.yml \
               -f ref=main \
-              -f inputs.releaseVersion="v${{ github.event.inputs.release-version }}"
+              -f releaseVersion="$version"
+              -f gitReference="$branch_name"
 
             cd -
           done <<< "${{ steps.load_repos.outputs.list }}"
