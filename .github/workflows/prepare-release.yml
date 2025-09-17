@@ -35,7 +35,9 @@ jobs:
 
       - name: Get GitHub App User ID
         id: get-user-id
-        run: echo "user-id=$(gh api "/users/${RUNGHA_APP_SLUG}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        run: | 
+          echo gh api "/users/${RUNGHA_APP_SLUG}[bot]"
+          echo "user-id=$(gh api "/users/${RUNGHA_APP_SLUG}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
@@ -48,12 +50,12 @@ jobs:
           RUNGHA_APP_SLUG: ${{ steps.app-token.outputs.app-slug }} # just for defense against script injection
           RUNGHA_USER_ID: ${{ steps.get-user-id.outputs.user-id }} # just for defense against script injection
 
-      - name: Debug App permissions
+      - name: Debug App installation token
         run: |
-          echo "➡️ Installations visibles par ce token :"
-          gh api /user/installations --jq '.installations[] | {account: .account.login, repos: .repository_selection, permissions: .permissions}'
+          echo "➡️ Repos accessibles par cette installation :"
+          gh api /installation/repositories --jq '.repositories[].full_name'
           echo
-          echo "➡️ Accès direct au repo ci-cd-test :"
+          echo "➡️ Vérification accès à ci-cd-test :"
           gh api /repos/gridsuite/ci-cd-test || echo "❌ Pas d'accès"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
