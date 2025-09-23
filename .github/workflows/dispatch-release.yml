@@ -27,6 +27,13 @@ jobs:
           submodules: false
           ref: release-workflow
 
+      - name: Mask Node Auth Token
+        run: |
+          GH_TOKEN=$(jq -r '.inputs.pat-token' $GITHUB_EVENT_PATH)
+          echo ::add-mask::$GH_TOKEN
+          echo "GH_TOKEN=$GH_TOKEN" >> $GITHUB_ENV
+
+
       - name: Load repo list from file or input
         id: load_repos
         run: |
@@ -58,4 +65,4 @@ jobs:
               
           done <<< "${{ steps.load_repos.outputs.list }}"
         env:
-          GH_TOKEN: ${{ github.event.inputs.pat-token }}
+          GH_TOKEN: ${{ env.GH_TOKEN }}
