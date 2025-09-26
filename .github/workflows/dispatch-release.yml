@@ -1,11 +1,68 @@
-name: Prepare release
+name: Dispatch release
 
 on:
   workflow_dispatch:
+    inputs:
+      release-version:
+        description: Release version (vX.X)
+        required: true
+        type: string
+      branch-name:
+        description: Branch to release (prepare-release-X.X)
+        required: true
+        type: string
+      pat-token:
+        description: PAT token (with workflow permissions)
 
 jobs:
-  say-hello:
+  dispatch-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
     steps:
-      - name: Echo message
-        run: echo "Hello"
+      - name: Checkout aggregator repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+          ref: release-workflow
+
+      - name: Mask Node Auth Token
+        run: |
+          GH_TOKEN=$(jq -r '.inputs.pat-token' $GITHUB_EVENT_PATH)
+          echo ::add-mask::$GH_TOKEN
+          echo "GH_TOKEN=$GH_TOKEN" >> $GITHUB_ENV
+
+
+      - name: Load repo list from file or input
+        id: load_repos
+        run: |
+          if [[ -z "${{ github.event.inputs.repos_to_release }}" ]]; then
+            echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
+            list="$(cat .github/config/repos-to-release.txt)"
+          else
+            echo "ℹ️ Input found → load user input"
+            list="${{ github.event.inputs.repos_to_release }}"
+          fi
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$list" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create tags and trigger release workflows
+        run: |
+          while read url; do
+
+            version=${{github.event.inputs.release-version}}
+            branch_name=${{github.event.inputs.branch-name}}
+
+            owner=$(echo "$url" | cut -d/ -f4)
+            repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
+
+            gh api repos/$owner/$repo/actions/workflows/release.yml/dispatches \
+              -f ref=main \
+              -f inputs[releaseVersion]="$version" \
+              -f inputs[gitReference]="$branch_name"
+              
+          done <<< "${{ steps.load_repos.outputs.list }}"
+        env:
+          GH_TOKEN: ${{ env.GH_TOKEN }}
