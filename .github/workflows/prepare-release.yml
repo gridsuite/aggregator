@@ -91,7 +91,7 @@ jobs:
               commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
               git checkout $commit_hash
 
-              branch_name="prepare-release-${{github.event.inputs.release-version}}"
+              branch_name="prepare-release-v${{github.event.inputs.release-version}}"
               # Check if *branch_name* already exists
               if git ls-remote --exit-code origin "refs/heads/$branch_name"; then
                   echo "❌ Warning for $folder: Branch $branch_name already exists"
