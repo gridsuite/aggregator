@@ -33,7 +33,8 @@
         <module>directory-server</module>
         <module>dynamic-mapping-server</module>
         <module>dynamic-simulation-server</module>
-        <module>dynamic-security-analysis-server</module>
+	<module>dynamic-security-analysis-server</module>
+	<module>dynamic-margin-calculation-server</module>
         <module>explore-server</module>
         <module>filter-server</module>
         <module>gateway</module>
