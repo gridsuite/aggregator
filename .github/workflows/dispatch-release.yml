@@ -8,26 +8,25 @@ on:
         required: true
         type: string
       branch-name:
-        description: Branch to release (prepare-release-X.X)
+        description: Branch to release (prepare-release-vX.X)
         required: true
         type: string
       pat-token:
         description: PAT token (with workflow permissions)
+        required: true
+        type: string
 
 jobs:
   dispatch-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
       - name: Checkout aggregator repository
         uses: actions/checkout@v4
         with:
           submodules: false
-          ref: release-workflow
 
-      - name: Mask Node Auth Token
+      - name: Mask GH_TOKEN Token
         run: |
           GH_TOKEN=$(jq -r '.inputs.pat-token' $GITHUB_EVENT_PATH)
           echo ::add-mask::$GH_TOKEN
