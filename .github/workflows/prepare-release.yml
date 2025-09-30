@@ -28,13 +28,17 @@ jobs:
 
       - name: Validate inputs
         run: |
-          if ! date -d "${{ github.event.inputs.target_date }}" "+%Y-%m-%dT%H:%M:%SZ" >/dev/null 2>&1; then
-            echo "❌ Invalid date"
-            exit 1
+          if [ -n "${{ github.event.inputs.target_date }}" ]; then
+            if ! date -d "${{ github.event.inputs.target_date }}" "+%Y-%m-%dT%H:%M:%SZ" >/dev/null 2>&1; then
+              echo "❌ Invalid date"
+              exit 1
+            fi
+            echo "✅ Valid date"
+          else
+            echo "ℹ️ No date provided, will fallback to last friday"
           fi
-          echo "✅ Valid date"
 
-          if [[ "github.event.inputs.release-version" =~ ^[0-9]+\.[0-9]+$ ]]; then
+          if [[ "${{ github.event.inputs.release-version }}" =~ ^[0-9]+\.[0-9]+$ ]]; then
             echo "✅ Valid version"
           else
             echo "❌ Invalid version"
