@@ -42,23 +42,8 @@ jobs:
             echo "✅ Valid version"
           else
             echo "❌ Invalid version"
+            exit 1
           fi
-
-          REPOS_TO_RELEASE_INPUT="${{ github.event.inputs.repos_to_release }}"
-          CONFIG_FILE=".github/config/repos-to-release.txt"
-
-          # Convert multi-line input to table
-          IFS=$'\n' read -d '' -r -a urls <<< "$REPOS_TO_RELEASE_INPUT"
-
-          # Check earch url is contained in config file
-          for url in "${urls[@]}"; do
-            if ! grep -Fxq "$url" "$CONFIG_FILE"; then
-              echo "❌ URL '$url' is unauthorized"
-              exit 1
-            fi
-          done
-
-          echo "✅ All URLs are valid"
 
       - uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1 v1.11.6
         id: app-token

@@ -32,6 +32,21 @@ jobs:
           echo ::add-mask::$GH_TOKEN
           echo "GH_TOKEN=$GH_TOKEN" >> $GITHUB_ENV
 
+      - name: Validate pat-token input
+        run: |
+          scopes=$(gh api -i user 2>&1 | grep -i 'x-oauth-scopes:' | cut -d' ' -f2-)
+
+          if [[ -n "$scopes" && "$scopes" == *"workflow"* ]]; then
+              echo "✅ Token is valid and has the 'workflow' scope"
+          elif [[ -n "$scopes" ]]; then
+              echo "⚠️ Token is valid but missing the 'workflow' scope"
+              exit 1
+          else
+              echo "❌ Invalid token"
+              exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ env.GH_TOKEN }}
 
       - name: Load repo list from file or input
         id: load_repos
