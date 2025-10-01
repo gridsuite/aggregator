@@ -28,9 +28,8 @@ jobs:
 
       - name: Mask GH_TOKEN Token
         run: |
-          GH_TOKEN=$(jq -r '.inputs.pat-token' $GITHUB_EVENT_PATH)
-          echo ::add-mask::$GH_TOKEN
-          echo "GH_TOKEN=$GH_TOKEN" >> $GITHUB_ENV
+          echo "::add-mask::${{ github.event.inputs.pat-token}}"
+          echo "GH_TOKEN=${{ github.event.inputs.pat-token}}" >> $GITHUB_ENV
 
       - name: Validate pat-token input
         run: |
@@ -45,8 +44,6 @@ jobs:
               echo "❌ Invalid token"
               exit 1
           fi
-        env:
-          GH_TOKEN: ${{ env.GH_TOKEN }}
 
       - name: Load repo list from file or input
         id: load_repos
@@ -78,5 +75,3 @@ jobs:
               -f inputs[gitReference]="$branch_name"
               
           done <<< "${{ steps.load_repos.outputs.list }}"
-        env:
-          GH_TOKEN: ${{ env.GH_TOKEN }}
