@@ -64,7 +64,7 @@ jobs:
           while read url; do
 
             version=${{github.event.inputs.release-version}}
-            branch_name=${{github.event.inputs.branch-name}}
+            branch_name=origin/${{github.event.inputs.branch-name}}
 
             owner=$(echo "$url" | cut -d/ -f4)
             repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
