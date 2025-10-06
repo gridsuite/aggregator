@@ -353,9 +353,9 @@
 	url = https://github.com/powsybl/powsybl-diagram
 	branch = main
 	ignore = all
-[submodule "powsybl-diagram-viewer"]
-	path = frontend/libs/powsybl-diagram-viewer
-	url = https://github.com/powsybl/powsybl-diagram-viewer
+[submodule "powsybl-network-viewer"]
+	path = frontend/libs/powsybl-network-viewer
+	url = https://github.com/powsybl/powsybl-network-viewer
 	branch = main
 	ignore = all
 [submodule "powsybl-network-store-server"]
