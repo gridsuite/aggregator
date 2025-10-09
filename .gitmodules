@@ -403,3 +403,8 @@
 	url = https://github.com/gridsuite/network-modification
 	branch = main
 	ignore = all
+[submodule "backend/libs/computation"]
+	path = backend/libs/computation
+	url = https://github.com/gridsuite/computation
+	branch = main
+	ignore = all
