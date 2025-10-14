@@ -28,8 +28,10 @@ jobs:
 
       - name: Mask GH_TOKEN Token
         run: |
-          echo "::add-mask::${{ github.event.inputs.pat-token}}"
-          echo "GH_TOKEN=${{ github.event.inputs.pat-token}}" >> $GITHUB_ENV
+          echo "::add-mask::$PAT_TOKEN"
+          echo "GH_TOKEN=$PAT_TOKEN" >> $GITHUB_ENV
+        env:
+          PAT_TOKEN: ${{ github.event.inputs.pat-token}} # just for defense against script injection
 
       - name: Validate pat-token input
         run: |
@@ -48,23 +50,25 @@ jobs:
       - name: Load repo list from file or input
         id: load_repos
         run: |
-          if [[ -z "${{ github.event.inputs.repos_to_release }}" ]]; then
+          if [[ -z "$REPOS_TO_RELEASE" ]]; then
             echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
             list="$(cat .github/config/repos-to-release.txt)"
           else
             echo "ℹ️ Input found → load user input"
-            list="${{ github.event.inputs.repos_to_release }}"
+            list="$REPOS_TO_RELEASE"
           fi
           echo "list<<EOF" >> $GITHUB_OUTPUT
           echo "$list" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+        env:
+          REPOS_TO_RELEASE: ${{ github.event.inputs.repos_to_release }}
 
       - name: Create tags and trigger release workflows
         run: |
           while read url; do
 
-            version=${{github.event.inputs.release-version}}
-            branch_name=origin/${{github.event.inputs.branch-name}}
+            version=$RELEASE_VERSION
+            branch_name=origin/$BRANCH_NAME
 
             owner=$(echo "$url" | cut -d/ -f4)
             repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
@@ -75,3 +79,6 @@ jobs:
               -f inputs[gitReference]="$branch_name"
               
           done <<< "${{ steps.load_repos.outputs.list }}"
+        env:
+          RELEASE_VERSION: ${{github.event.inputs.release-version}}
+          BRANCH_NAME: ${{github.event.inputs.branch-name}}
