@@ -78,7 +78,8 @@ jobs:
               -f inputs[releaseVersion]="$version" \
               -f inputs[gitReference]="$branch_name"
               
-          done <<< "${{ steps.load_repos.outputs.list }}"
+          done <<< "$REPOS_LIST"
         env:
+          REPOS_LIST: ${{ steps.load_repos.outputs.list }}
           RELEASE_VERSION: ${{github.event.inputs.release-version}}
           BRANCH_NAME: ${{github.event.inputs.branch-name}}
