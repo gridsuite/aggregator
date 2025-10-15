@@ -227,7 +227,12 @@
 	path = backend/servers/dynamic-security-analysis-server
 	url = https://github.com/gridsuite/dynamic-security-analysis-server
 	branch = main
-    ignore = all
+	ignore = all
+[submodule "dynamic-margin-calculation-server"]
+	path = backend/servers/dynamic-margin-calculation-server
+	url = https://github.com/gridsuite/dynamic-margin-calculation-server
+	branch = main
+	ignore = all
 [submodule "cgmes-boundary-import-job"]
 	path = backend/jobs/cgmes-boundary-import-job
 	url = https://github.com/gridsuite/cgmes-boundary-import-job
@@ -348,9 +353,9 @@
 	url = https://github.com/powsybl/powsybl-diagram
 	branch = main
     ignore = all
-[submodule "powsybl-diagram-viewer"]
-	path = frontend/libs/powsybl-diagram-viewer
-	url = https://github.com/powsybl/powsybl-diagram-viewer
+[submodule "powsybl-network-viewer"]
+	path = frontend/libs/powsybl-network-viewer
+	url = https://github.com/powsybl/powsybl-network-viewer
 	branch = main
     ignore = all
 [submodule "powsybl-network-store-server"]
@@ -397,4 +402,9 @@
 	path = backend/libs/network-modification
 	url = https://github.com/gridsuite/network-modification
 	branch = main
-    ignore = all
+	ignore = all
+[submodule "backend/libs/computation"]
+	path = backend/libs/computation
+	url = https://github.com/gridsuite/computation
+	branch = main
+	ignore = all

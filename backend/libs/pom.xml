@@ -21,6 +21,7 @@
     <description>Aggregator libs</description>
 
     <modules>
+        <module>computation</module>
         <module>filter</module>
         <module>network-modification</module>
         <module>powsybl-case-datasource</module>
