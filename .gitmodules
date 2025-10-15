@@ -12,217 +12,217 @@
 	path = backend/libs/powsybl-dynawo
 	url = https://github.com/powsybl/powsybl-dynawo
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-open-loadflow"]
 	path = backend/libs/powsybl-open-loadflow
 	url = https://github.com/powsybl/powsybl-open-loadflow
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-network-store"]
 	path = backend/libs/powsybl-network-store
 	url = https://github.com/powsybl/powsybl-network-store
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-single-line-diagram-server"]
 	path = backend/servers/powsybl-single-line-diagram-server
 	url = https://github.com/powsybl/powsybl-single-line-diagram-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-network-conversion-server"]
 	path = backend/servers/powsybl-network-conversion-server
 	url = https://github.com/powsybl/powsybl-network-conversion-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-case"]
 	path = backend/libs/powsybl-case
 	url = https://github.com/powsybl/powsybl-case
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-parent"]
 	path = backend/build/powsybl-parent
 	url = https://github.com/powsybl/powsybl-parent
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-entsoe"]
 	path = backend/libs/powsybl-entsoe
 	url = https://github.com/powsybl/powsybl-entsoe
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "java-docker"]
 	path = docker/java-docker
 	url = https://github.com/powsybl/java-docker
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-ws-commons"]
 	path = backend/libs/powsybl-ws-commons
 	url = https://github.com/powsybl/powsybl-ws-commons
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "study-server"]
 	path = backend/servers/study-server
 	url = https://github.com/gridsuite/study-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "network-map-server"]
 	path = backend/servers/network-map-server
 	url = https://github.com/gridsuite/network-map-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "deployment"]
 	path = tools/deployment
 	url = https://github.com/gridsuite/deployment
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridstudy-app"]
 	path = frontend/apps/gridstudy-app
 	url = https://github.com/gridsuite/gridstudy-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "odre-server"]
 	path = backend/servers/odre-server
 	url = https://github.com/gridsuite/odre-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "oidc-mock-server"]
 	path = tools/oidc-mock-server
 	url = https://github.com/gridsuite/oidc-mock-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "broadcast-event"]
 	path = tools/broadcast-event
 	url = https://github.com/gridsuite/broadcast-event
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "network-modification-server"]
 	path = backend/servers/network-modification-server
 	url = https://github.com/gridsuite/network-modification-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gateway"]
 	path = backend/servers/gateway
 	url = https://github.com/gridsuite/gateway
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "geo-data-app"]
 	path = frontend/apps/geo-data-app
 	url = https://github.com/gridsuite/geo-data-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridsuite.github.io"]
 	path = docs/gridsuite.github.io
 	url = https://github.com/gridsuite/gridsuite.github.io
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "commons-ui"]
 	path = frontend/libs/commons-ui
 	url = https://github.com/gridsuite/commons-ui
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "case-import-job"]
 	path = backend/jobs/case-import-job
 	url = https://github.com/gridsuite/case-import-job
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "loadflow-server"]
 	path = backend/servers/loadflow-server
 	url = https://github.com/gridsuite/loadflow-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "balances-adjustment-server"]
 	path = backend/servers/balances-adjustment-server
 	url = https://github.com/gridsuite/balances-adjustment-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "merge-orchestrator-server"]
 	path = backend/servers/merge-orchestrator-server
 	url = https://github.com/gridsuite/merge-orchestrator-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridapp-template"]
 	path = frontend/apps/gridapp-template
 	url = https://github.com/gridsuite/gridapp-template
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "case-validation-server"]
 	path = backend/servers/case-validation-server
 	url = https://github.com/gridsuite/case-validation-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "merge-notification-server"]
 	path = backend/servers/merge-notification-server
 	url = https://github.com/gridsuite/merge-notification-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "cgmes-assembling-job"]
 	path = backend/jobs/cgmes-assembling-job
 	url = https://github.com/gridsuite/cgmes-assembling-job
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "cgmes-boundary-server"]
 	path = backend/servers/cgmes-boundary-server
 	url = https://github.com/gridsuite/cgmes-boundary-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridmerge-app"]
 	path = frontend/apps/gridmerge-app
 	url = https://github.com/gridsuite/gridmerge-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "dependencies"]
 	path = backend/build/dependencies
 	url = https://github.com/gridsuite/dependencies
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "java-hades2-docker"]
 	path = docker/java-hades2-docker
 	url = https://github.com/gridsuite/java-hades2-docker
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "actions-server"]
 	path = backend/servers/actions-server
 	url = https://github.com/gridsuite/actions-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "security-analysis-server"]
 	path = backend/servers/security-analysis-server
 	url = https://github.com/gridsuite/security-analysis-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridactions-app"]
 	path = frontend/apps/gridactions-app
 	url = https://github.com/gridsuite/gridactions-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "test-cases"]
 	path = tools/test-cases
 	url = https://github.com/gridsuite/test-cases
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "config-server"]
 	path = backend/servers/config-server
 	url = https://github.com/gridsuite/config-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "config-notification-server"]
 	path = backend/servers/config-notification-server
 	url = https://github.com/gridsuite/config-notification-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "directory-server"]
 	path = backend/servers/directory-server
 	url = https://github.com/gridsuite/directory-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "java-dynawo-docker"]
 	path = docker/java-dynawo-docker
 	url = https://github.com/gridsuite/java-dynawo-docker
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "dynamic-simulation-server"]
 	path = backend/servers/dynamic-simulation-server
 	url = https://github.com/gridsuite/dynamic-simulation-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "dynamic-security-analysis-server"]
 	path = backend/servers/dynamic-security-analysis-server
 	url = https://github.com/gridsuite/dynamic-security-analysis-server
@@ -237,167 +237,167 @@
 	path = backend/jobs/cgmes-boundary-import-job
 	url = https://github.com/gridsuite/cgmes-boundary-import-job
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "griddyna-app"]
 	path = frontend/apps/griddyna-app
 	url = https://github.com/gridsuite/griddyna-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "filter-server"]
 	path = backend/servers/filter-server
 	url = https://github.com/gridsuite/filter-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "dynamic-mapping-server"]
 	path = backend/servers/dynamic-mapping-server
 	url = https://github.com/gridsuite/dynamic-mapping-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "report-server"]
 	path = backend/servers/report-server
 	url = https://github.com/gridsuite/report-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "gridexplore-app"]
 	path = frontend/apps/gridexplore-app
 	url = https://github.com/gridsuite/gridexplore-app
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "directory-notification-server"]
 	path = backend/servers/directory-notification-server
 	url = https://github.com/gridsuite/directory-notification-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "explore-server"]
 	path = backend/servers/explore-server
 	url = https://github.com/gridsuite/explore-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "documentation"]
 	path = docs/documentation
 	url = https://github.com/gridsuite/documentation
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "case-import-server"]
 	path = backend/servers/case-import-server
 	url = https://github.com/gridsuite/case-import-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "cgmes-gl-server"]
 	path = backend/servers/cgmes-gl-server
 	url = https://github.com/gridsuite/cgmes-gl-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "geo-data-server"]
 	path = backend/servers/geo-data-server
 	url = https://github.com/gridsuite/geo-data-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "admin-tools"]
 	path = tools/admin-tools
 	url = https://github.com/gridsuite/admin-tools
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "java-simulator-docker"]
 	path = docker/java-simulator-docker
 	url = https://github.com/gridsuite/java-simulator-docker
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "sensitivity-analysis-server"]
 	path = backend/servers/sensitivity-analysis-server
 	url = https://github.com/gridsuite/sensitivity-analysis-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "shortcircuit-server"]
 	path = backend/servers/shortcircuit-server
 	url = https://github.com/gridsuite/shortcircuit-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "study-notification-server"]
 	path = backend/servers/study-notification-server
 	url = https://github.com/gridsuite/study-notification-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "timeseries-server"]
 	path = backend/servers/timeseries-server
 	url = https://github.com/gridsuite/timeseries-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "user-admin-server"]
 	path = backend/servers/user-admin-server
 	url = https://github.com/gridsuite/user-admin-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "voltage-init-server"]
 	path = backend/servers/voltage-init-server
 	url = https://github.com/gridsuite/voltage-init-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-case-datasource"]
 	path = backend/libs/powsybl-case-datasource
 	url = https://github.com/powsybl/powsybl-case-datasource
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-case-server"]
 	path = backend/servers/powsybl-case-server
 	url = https://github.com/powsybl/powsybl-case-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-dependencies"]
 	path = backend/build/powsybl-dependencies
 	url = https://github.com/powsybl/powsybl-dependencies
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-diagram"]
 	path = backend/libs/powsybl-diagram
 	url = https://github.com/powsybl/powsybl-diagram
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-network-viewer"]
 	path = frontend/libs/powsybl-network-viewer
 	url = https://github.com/powsybl/powsybl-network-viewer
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-network-store-server"]
 	path = backend/servers/powsybl-network-store-server
 	url = https://github.com/powsybl/powsybl-network-store-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-network-hypothesis"]
 	path = backend/libs/powsybl-network-hypothesis
 	url = https://github.com/powsybl/powsybl-network-hypothesis
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "powsybl-ws-dependencies"]
 	path = backend/build/powsybl-ws-dependencies
 	url = https://github.com/powsybl/powsybl-ws-dependencies
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "backend/libs/powsybl-optimizer"]
 	path = backend/libs/powsybl-optimizer
 	url = https://github.com/powsybl/powsybl-optimizer
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "frontend/apps/gridadmin-app"]
 	path = frontend/apps/gridadmin-app
 	url = https://github.com/gridsuite/gridadmin-app.git
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "backend/libs/filter"]
 	path = backend/libs/filter
 	url = https://github.com/gridsuite/filter
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "backend/servers/study-config-server"]
 	path = backend/servers/study-config-server
 	url = https://github.com/gridsuite/study-config-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "user-identity-oidc-replication-server"]
 	path = backend/servers/user-identity-oidc-replication-server
 	url = https://github.com/gridsuite/user-identity-oidc-replication-server
 	branch = main
-    ignore = all
+	ignore = all
 [submodule "backend/libs/network-modification"]
 	path = backend/libs/network-modification
 	url = https://github.com/gridsuite/network-modification
