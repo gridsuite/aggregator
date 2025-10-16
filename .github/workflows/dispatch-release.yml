@@ -1,11 +1,85 @@
-name: Prepare release
+name: Dispatch release
 
 on:
   workflow_dispatch:
+    inputs:
+      release-version:
+        description: Release version (vX.X)
+        required: true
+        type: string
+      branch-name:
+        description: Branch to release (prepare-release-vX.X)
+        required: true
+        type: string
+      pat-token:
+        description: PAT token (with workflow permissions)
+        required: true
+        type: string
 
 jobs:
-  say-hello:
+  dispatch-release:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Echo message
-        run: echo "Hello"
+      - name: Checkout aggregator repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Mask GH_TOKEN Token
+        run: |
+          echo "::add-mask::$PAT_TOKEN"
+          echo "GH_TOKEN=$PAT_TOKEN" >> $GITHUB_ENV
+        env:
+          PAT_TOKEN: ${{ github.event.inputs.pat-token}} # just for defense against script injection
+
+      - name: Validate pat-token input
+        run: |
+          scopes=$(gh api -i user 2>&1 | grep -i 'x-oauth-scopes:' | cut -d' ' -f2-)
+
+          if [[ -n "$scopes" && "$scopes" == *"workflow"* ]]; then
+              echo "✅ Token is valid and has the 'workflow' scope"
+          elif [[ -n "$scopes" ]]; then
+              echo "⚠️ Token is valid but missing the 'workflow' scope"
+              exit 1
+          else
+              echo "❌ Invalid token"
+              exit 1
+          fi
+
+      - name: Load repo list from file or input
+        id: load_repos
+        run: |
+          if [[ -z "$REPOS_TO_RELEASE" ]]; then
+            echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
+            list="$(cat .github/config/repos-to-release.txt)"
+          else
+            echo "ℹ️ Input found → load user input"
+            list="$REPOS_TO_RELEASE"
+          fi
+          echo "list<<EOF" >> $GITHUB_OUTPUT
+          echo "$list" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        env:
+          REPOS_TO_RELEASE: ${{ github.event.inputs.repos_to_release }}
+
+      - name: Create tags and trigger release workflows
+        run: |
+          while read url; do
+
+            version=$RELEASE_VERSION
+            branch_name=origin/$BRANCH_NAME
+
+            owner=$(echo "$url" | cut -d/ -f4)
+            repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
+
+            gh api repos/$owner/$repo/actions/workflows/release.yml/dispatches \
+              -f ref=main \
+              -f inputs[releaseVersion]="$version" \
+              -f inputs[gitReference]="$branch_name"
+              
+          done <<< "$REPOS_LIST"
+        env:
+          REPOS_LIST: ${{ steps.load_repos.outputs.list }}
+          RELEASE_VERSION: ${{github.event.inputs.release-version}}
+          BRANCH_NAME: ${{github.event.inputs.branch-name}}
