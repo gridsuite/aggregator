@@ -19,6 +19,7 @@ on:
 jobs:
   dispatch-release:
     runs-on: ubuntu-latest
+    environment: main
 
     steps:
       - name: Checkout aggregator repository
