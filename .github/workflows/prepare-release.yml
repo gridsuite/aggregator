@@ -20,6 +20,8 @@ on:
 jobs:
   prepare-release:
     runs-on: ubuntu-latest
+    environment: main
+
     steps:
       - name: Checkout aggregator repository
         uses: actions/checkout@v4
