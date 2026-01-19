@@ -411,3 +411,5 @@
 [submodule "backend/servers/monitor-core"]
 	path = backend/servers/monitor-core
 	url = https://github.com/gridsuite/monitor-core
+	branch = main
+	ignore = all
