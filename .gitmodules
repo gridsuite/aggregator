@@ -408,3 +408,6 @@
 	url = https://github.com/gridsuite/computation
 	branch = main
 	ignore = all
+[submodule "backend/servers/monitor-core"]
+	path = backend/servers/monitor-core
+	url = https://github.com/gridsuite/monitor-core

@@ -60,6 +60,7 @@
         <module>user-admin-server</module>
         <module>voltage-init-server</module>
         <module>user-identity-oidc-replication-server</module>
+        <module>monitor-core</module>
     </modules>
 
 </project>
