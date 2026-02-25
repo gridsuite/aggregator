@@ -28,4 +28,3 @@ https://github.com/gridsuite/shortcircuit-server
 https://github.com/gridsuite/voltage-init-server
 https://github.com/gridsuite/case-import-server
 https://github.com/gridsuite/user-identity-oidc-replication-server
-https://github.com/gridsuite/monitor-core
