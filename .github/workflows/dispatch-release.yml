@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       branch-name:
-        description: Branch to release (prepare-release-vX.X)
+        description: Branch to release (prepare-release-vX.X.X)
         required: true
         type: string
       pat-token:
