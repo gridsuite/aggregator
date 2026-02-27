@@ -39,9 +39,9 @@ $ git submodule foreach --recursive '
 $ git submodule foreach --recursive 'gh pr review <branch> --approve || true'
 ```
 
-### 4. Auto-merge all PRs
+### 4. Merge all PRs
 ```
-$ git submodule foreach --recursive 'gh pr merge <branch> --auto --squash || true'
+$ git submodule foreach --recursive 'gh pr merge <branch> --squash || true'
 ```
 
 ## Java Compile
