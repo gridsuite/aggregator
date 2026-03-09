@@ -12,6 +12,38 @@ $ git submodule foreach --recursive 'git checkout main'
 $ git submodule update --remote --recursive --rebase --jobs 8
 ```
 
+## Review and merge a PR across all submodules
+
+Replace `<branch>` with the PR branch name.
+
+### 1. Checkout the branch in all submodules
+```
+$ git submodule foreach --recursive '
+  git fetch origin &&
+  git checkout <branch> 2>/dev/null || echo "branch not found"'
+```
+
+### 2. Review each diff interactively
+```
+$ git submodule foreach --recursive '
+  bash -c "
+    echo \"=== \$name ===\";
+    gh pr diff <branch> || true;
+    read -r -p \"Press Enter to continue...\"
+  "
+'
+```
+
+### 3. Approve all PRs
+```
+$ git submodule foreach --recursive 'gh pr review <branch> --approve || true'
+```
+
+### 4. Merge all PRs
+```
+$ git submodule foreach --recursive 'gh pr merge <branch> --squash || true'
+```
+
 ## Java Compile
 ### Partial recompile
 Setting a version property matching the current source code version of an
