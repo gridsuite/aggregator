@@ -11,7 +11,7 @@ on:
         description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
         required: false
       release-version:
-        description: "Version for new tag (ex: 2.8.0)"
+        description: "Version for new release (ex: 2.8.0)"
         required: true
     secrets:
       VERSIONBUMP_GHAPP_PRIVATE_KEY:
