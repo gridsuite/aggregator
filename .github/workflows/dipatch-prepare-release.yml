@@ -1,4 +1,4 @@
-name: Prepare release
+name: Dipatch prepare-release
 
 on:
   workflow_dispatch:
@@ -122,7 +122,7 @@ jobs:
         env:
           TARGET_DATE: ${{ github.event.inputs.target_date }} # just for defense against script injection
 
-      - name: Create "prepare" branches
+      - name: trigger prepare-release workflows 
         run: |
           mkdir public_repos
           cd public_repos
@@ -134,26 +134,18 @@ jobs:
               cd $folder
               commit_date="$COMMIT_DATE"
               commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
-              git  -c advice.detachedHead=false checkout $commit_hash
+              echo "Dispatching prepare release with commit : $commit_hash | $commit_message"
 
-              branch_name="prepare-release-v$RELEASE_VERSION"
-              # Check if *branch_name* already exists
-              if git ls-remote --exit-code origin "refs/heads/$branch_name"; then
-                  echo "❌ Warning for $folder: Branch $branch_name already exists"
-                  exit 1
-              fi
-              git checkout -b "$branch_name"
+              owner=$(echo "$url" | cut -d/ -f4)
+              repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
+              version="v$RELEASE_VERSION"
 
-              if ! git push origin "$branch_name"; then
-                  echo "❌ Error for $folder: Failed to push $branch_name"
-                  exit 1
-              fi
-
-              commit_message=$(git log -1 --pretty=%s | cut -c1-50)
-
-              echo "✅ $folder : $branch_name branch created → $commit_hash | $commit_message"
-              cd - > /dev/null
-          done <<< "$REPO_LIST"
+              gh api repos/$owner/$repo/actions/workflows/release.yml/dispatches \
+                -f ref=main \
+                -f inputs[releaseVersion]="$version" \
+                -f inputs[gitReference]="$commit_hash"
+              
+          done <<< "$REPOS_LIST"
         env:
           COMMIT_DATE: ${{ steps.load_date.outputs.date_value }} # just for defense against script injection
           REPO_LIST: ${{ steps.load_repos.outputs.list }} # just for defense against script injection
