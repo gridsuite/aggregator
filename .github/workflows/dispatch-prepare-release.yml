@@ -1,4 +1,4 @@
-name: Prepare release
+name: Dispatch prepare-release
 
 on:
   workflow_dispatch:
@@ -11,8 +11,13 @@ on:
         description: "Date of last commit to inlude (ISO 8601, ex: 2024-09-13T23:59:59Z - default : last friday 23:59:59)."
         required: false
       release-version:
-        description: "Version for new tag (ex: 2.8.0)"
+        description: Release version (vX.X)
         required: true
+        type: string
+      pat-token:
+        description: PAT token (with workflow permissions)
+        required: true
+        type: string
     secrets:
       VERSIONBUMP_GHAPP_PRIVATE_KEY:
         required: true
@@ -28,6 +33,27 @@ jobs:
         with:
           submodules: false
 
+      - name: Mask GH_TOKEN Token
+        run: |
+          echo "::add-mask::$PAT_TOKEN"
+          echo "GH_TOKEN=$PAT_TOKEN" >> $GITHUB_ENV
+        env:
+          PAT_TOKEN: ${{ github.event.inputs.pat-token}} # just for defense against script injection
+
+      - name: Validate pat-token input
+        run: |
+          scopes=$(gh api -i user 2>&1 | grep -i 'x-oauth-scopes:' | cut -d' ' -f2-)
+
+          if [[ -n "$scopes" && "$scopes" == *"workflow"* ]]; then
+              echo "✅ Token is valid and has the 'workflow' scope"
+          elif [[ -n "$scopes" ]]; then
+              echo "⚠️ Token is valid but missing the 'workflow' scope"
+              exit 1
+          else
+              echo "❌ Invalid token"
+              exit 1
+          fi
+
       - name: Validate inputs
         run: |
           if [ -n "$TARGET_DATE" ]; then
@@ -40,10 +66,10 @@ jobs:
             echo "ℹ️ No date provided, will fallback to last friday"
           fi
 
-          if [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          if [[ "$RELEASE_VERSION" =~ ^v([0-9]+)\.([0-9]+)$ ]]; then
             echo "✅ Valid version"
           else
-            echo "❌ Invalid version"
+            echo "❌ Invalid version, should match the format vX.X"
             exit 1
           fi
 
@@ -100,7 +126,7 @@ jobs:
             echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
             list="$(cat .github/config/repos-to-release.txt)"
           else
-            echo "ℹ️ Input found → load user input"
+            echo "ℹ️ Input found → load user input $REPOS_TO_RELEASE"
             list="$REPOS_TO_RELEASE"
           fi
           echo "list<<EOF" >> $GITHUB_OUTPUT
@@ -122,40 +148,32 @@ jobs:
         env:
           TARGET_DATE: ${{ github.event.inputs.target_date }} # just for defense against script injection
 
-      - name: Create "prepare" branches
+      - name: trigger prepare-release workflows 
         run: |
           mkdir public_repos
           cd public_repos
 
           while read url; do
-              url_with_token="${url/https:\/\/github.com/https:\/\/x-access-token:${TOKEN}@github.com}"
-              git clone "$url_with_token"
-              folder=$(basename "$url" .git)
+            url_with_token="${url/https:\/\/github.com/https:\/\/x-access-token:${TOKEN}@github.com}"
+            git clone "$url_with_token"
+            folder=$(basename "$url" .git)
+            (
               cd $folder
               commit_date="$COMMIT_DATE"
               commit_hash=$(git rev-list -n 1 --before="$commit_date" main)
-              git  -c advice.detachedHead=false checkout $commit_hash
+              echo "Dispatching prepare release with commit : $commit_hash | $commit_message"
 
-              branch_name="prepare-release-v$RELEASE_VERSION"
-              # Check if *branch_name* already exists
-              if git ls-remote --exit-code origin "refs/heads/$branch_name"; then
-                  echo "❌ Warning for $folder: Branch $branch_name already exists"
-                  exit 1
-              fi
-              git checkout -b "$branch_name"
+              owner=$(echo "$url" | cut -d/ -f4)
+              repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
 
-              if ! git push origin "$branch_name"; then
-                  echo "❌ Error for $folder: Failed to push $branch_name"
-                  exit 1
-              fi
-
-              commit_message=$(git log -1 --pretty=%s | cut -c1-50)
-
-              echo "✅ $folder : $branch_name branch created → $commit_hash | $commit_message"
-              cd - > /dev/null
-          done <<< "$REPO_LIST"
+              gh api repos/$owner/$repo/actions/workflows/prepare-release.yml/dispatches \
+                -f ref=main \
+                -f inputs[releaseVersion]="$RELEASE_VERSION" \
+                -f inputs[gitReference]="$commit_hash"
+            )   
+          done <<< "$REPOS_LIST"
         env:
           COMMIT_DATE: ${{ steps.load_date.outputs.date_value }} # just for defense against script injection
-          REPO_LIST: ${{ steps.load_repos.outputs.list }} # just for defense against script injection
+          REPOS_LIST: ${{ steps.load_repos.outputs.list }} # just for defense against script injection
           TOKEN: ${{ steps.app-token.outputs.token }} # just for defense against script injection
           RELEASE_VERSION: ${{github.event.inputs.release-version}} # just for defense against script injection

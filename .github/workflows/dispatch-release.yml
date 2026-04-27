@@ -7,10 +7,6 @@ on:
         description: Release version (vX.X)
         required: true
         type: string
-      branch-name:
-        description: Branch to release (prepare-release-vX.X.X)
-        required: true
-        type: string
       pat-token:
         description: PAT token (with workflow permissions)
         required: true
@@ -69,18 +65,15 @@ jobs:
           while read url; do
 
             version=$RELEASE_VERSION
-            branch_name=origin/$BRANCH_NAME
 
             owner=$(echo "$url" | cut -d/ -f4)
             repo=$(echo "$url" | cut -d/ -f5 | sed 's/\.git$//')
 
             gh api repos/$owner/$repo/actions/workflows/release.yml/dispatches \
               -f ref=main \
-              -f inputs[releaseVersion]="$version" \
-              -f inputs[gitReference]="$branch_name"
+              -f inputs[releaseVersion]="$version"
               
           done <<< "$REPOS_LIST"
         env:
           REPOS_LIST: ${{ steps.load_repos.outputs.list }}
           RELEASE_VERSION: ${{github.event.inputs.release-version}}
-          BRANCH_NAME: ${{github.event.inputs.branch-name}}
