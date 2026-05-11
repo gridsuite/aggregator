@@ -12,6 +12,24 @@ $ git submodule foreach --recursive 'git checkout main'
 $ git submodule update --remote --recursive --rebase --jobs 8
 ```
 
+## Add a new submodule
+
+### 1. Add the repository as a submodule
+```
+$ git submodule add -b main https://github.com/gridsuite/<repo> <path>
+```
+
+### 2. Keep the `.gitmodules` settings aligned with the existing submodules
+Add `ignore = all` in the new submodule block.
+
+### 3. Register backend Maven modules
+If the new submodule is a backend Maven module, add it to the matching parent
+POM. For example, backend servers must also be declared in
+`backend/servers/pom.xml`:
+```
+<module>new-server</module>
+```
+
 ## Review and merge a PR across all submodules
 
 Replace `<branch>` with the PR branch name.
