@@ -413,3 +413,13 @@
 	url = https://github.com/gridsuite/monitor-core
 	branch = main
 	ignore = all
+[submodule "backend/servers/monitor-notification-server"]
+	path = backend/servers/monitor-notification-server
+	url = https://github.com/gridsuite/monitor-notification-server
+	branch = main
+	ignore = all
+[submodule "frontend/apps/gridmonitor-app"]
+	path = frontend/apps/gridmonitor-app
+	url = https://github.com/gridsuite/gridmonitor-app
+	branch = main
+	ignore = all
