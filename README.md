@@ -1,8 +1,11 @@
 # Gridsuite Aggregator
 
+To ease the work of developers working across multiple repositories, the aggregator permits managing all Gridsuite repositories as submodules. It provides a single entry point to clone, update, and build all repositories, and to review and merge PRs across them.
+
 ## Inital clone
 ```
 $ git clone --recurse-submodules --remote-submodules --jobs 8 https://github.com/gridsuite/aggregator
+$ cd aggregator
 $ git submodule foreach --recursive 'git checkout main'
 ```
 
