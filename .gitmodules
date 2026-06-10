@@ -183,11 +183,6 @@
 	url = https://github.com/gridsuite/security-analysis-server
 	branch = main
 	ignore = all
-[submodule "gridactions-app"]
-	path = frontend/apps/gridactions-app
-	url = https://github.com/gridsuite/gridactions-app
-	branch = main
-	ignore = all
 [submodule "test-cases"]
 	path = tools/test-cases
 	url = https://github.com/gridsuite/test-cases
