@@ -103,11 +103,6 @@
 	url = https://github.com/gridsuite/gateway
 	branch = main
 	ignore = all
-[submodule "geo-data-app"]
-	path = frontend/apps/geo-data-app
-	url = https://github.com/gridsuite/geo-data-app
-	branch = main
-	ignore = all
 [submodule "gridsuite.github.io"]
 	path = docs/gridsuite.github.io
 	url = https://github.com/gridsuite/gridsuite.github.io
