@@ -77,7 +77,7 @@ jobs:
             CONFIG_FILE=".github/config/repos-to-release.txt"
 
             # Convert multi-line input to table
-            IFS=$'\n' read -d '' -r -a urls <<< "$REPOS_TO_RELEASE"
+            mapfile -t urls <<< "$REPOS_TO_RELEASE"
 
             # Check earch url is contained in config file
             for url in "${urls[@]}"; do

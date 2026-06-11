@@ -3,6 +3,10 @@ name: Dispatch release
 on:
   workflow_dispatch:
     inputs:
+      repos_to_release:
+        description: "Manual list of repositories to release (.github/config/repos-to-release.txt content if left empty)"
+        default: ""
+        required: false
       release-version:
         description: Release version (vX.X)
         required: true
@@ -43,6 +47,28 @@ jobs:
               echo "❌ Invalid token"
               exit 1
           fi
+
+      - name: Validate input
+        run: |
+          if [ -n "$REPOS_TO_RELEASE" ]; then
+            CONFIG_FILE=".github/config/repos-to-release.txt"
+
+            # Convert multi-line input to table
+            mapfile -t urls <<< "$REPOS_TO_RELEASE"
+
+            # Check earch url is contained in config file
+            for url in "${urls[@]}"; do
+              if ! grep -Fxq "$url" "$CONFIG_FILE"; then
+                echo "❌ URL '$url' is unauthorized"
+                exit 1
+              fi
+            done
+          fi
+
+          echo "✅ All URLs are valid"
+        env:
+          REPOS_TO_RELEASE: ${{ github.event.inputs.repos_to_release }} # just for defense against script injection
+
 
       - name: Load repo list from file or input
         id: load_repos
