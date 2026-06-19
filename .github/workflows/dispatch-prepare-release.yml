@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       repos_to_release:
-        description: "Manual list of repositories to release (.github/config/repos-to-release.txt content if left empty)"
+        description: "JSON array of repositories to release (.github/config/repos-to-release.json content if left empty)"
         default: ""
         required: false
       target_date:
@@ -74,16 +74,25 @@ jobs:
           fi
 
           if [ -n "$REPOS_TO_RELEASE" ]; then
-            CONFIG_FILE=".github/config/repos-to-release.txt"
+            CONFIG_FILE=".github/config/repos-to-release.json"
+            # Parse input JSON array into Bash array
+            jq_output=$(jq -r '.[]' <<< "$REPOS_TO_RELEASE") || {
+              echo "❌ Invalid JSON in REPOS_TO_RELEASE"
+              exit 1
+            }
 
-            # Convert multi-line input to table
-            IFS=$'\n' read -d '' -r -a urls <<< "$REPOS_TO_RELEASE"
+            if [[ -z "$jq_output" ]]; then
+              echo "❌ REPOS_TO_RELEASE cannot be an empty array"
+              exit 1
+            fi
 
-            # Check earch url is contained in config file
+            mapfile -t urls <<< "$jq_output"
+
+            # For each URL, check it exists in the config JSON array
             for url in "${urls[@]}"; do
-              if ! grep -Fxq "$url" "$CONFIG_FILE"; then
-                echo "❌ URL '$url' is unauthorized"
-                exit 1
+              if ! jq -e --arg url "$url" 'index($url)' "$CONFIG_FILE" > /dev/null; then
+              echo "❌ URL '$url' is unauthorized"
+              exit 1
               fi
             done
           fi
@@ -123,11 +132,13 @@ jobs:
         id: load_repos
         run: |
           if [[ -z "$REPOS_TO_RELEASE" ]]; then
-            echo "ℹ️ No user input → load .github/config/repos-to-release.txt"
-            list="$(cat .github/config/repos-to-release.txt)"
+            echo "ℹ️ No user input → load .github/config/repos-to-release.json"
+            # JSON array in file → one URL per line
+            list="$(jq -r '.[]' .github/config/repos-to-release.json)"
           else
             echo "ℹ️ Input found → load user input $REPOS_TO_RELEASE"
-            list="$REPOS_TO_RELEASE"
+            # JSON array from input → one URL per line
+            list="$(jq -r '.[]' <<< "$REPOS_TO_RELEASE")"
           fi
           echo "list<<EOF" >> $GITHUB_OUTPUT
           echo "$list" >> $GITHUB_OUTPUT
