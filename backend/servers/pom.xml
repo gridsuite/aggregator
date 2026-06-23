@@ -24,8 +24,6 @@
         <module>actions-server</module>
         <module>balances-adjustment-server</module>
         <module>case-import-server</module>
-        <module>case-validation-server</module>
-        <module>cgmes-boundary-server</module>
         <module>cgmes-gl-server</module>
         <module>config-notification-server</module>
         <module>config-server</module>
@@ -33,15 +31,13 @@
         <module>directory-server</module>
         <module>dynamic-mapping-server</module>
         <module>dynamic-simulation-server</module>
-	    <module>dynamic-security-analysis-server</module>
-	    <module>dynamic-margin-calculation-server</module>
+	<module>dynamic-security-analysis-server</module>
+	<module>dynamic-margin-calculation-server</module>
         <module>explore-server</module>
         <module>filter-server</module>
         <module>gateway</module>
         <module>geo-data-server</module>
         <module>loadflow-server</module>
-        <module>merge-notification-server</module>
-        <module>merge-orchestrator-server</module>
         <module>network-map-server</module>
         <module>network-modification-server</module>
         <module>odre-server</module>

@@ -22,7 +22,6 @@
 
     <modules>
         <module>build</module>
-        <module>jobs</module>
         <module>libs</module>
         <module>servers</module>
     </modules>
