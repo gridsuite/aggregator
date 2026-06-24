@@ -22,7 +22,6 @@
 
     <modules>
         <module>actions-server</module>
-        <module>balances-adjustment-server</module>
         <module>case-import-server</module>
         <module>cgmes-gl-server</module>
         <module>config-notification-server</module>

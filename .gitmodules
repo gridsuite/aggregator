@@ -3,11 +3,6 @@
 	url = https://github.com/powsybl/powsybl-core
 	branch = main
 	ignore = all
-[submodule "powsybl-math-native"]
-	path = backend/libs/powsybl-math-native
-	url = https://github.com/powsybl/powsybl-math-native
-	branch = main
-	ignore = all
 [submodule "powsybl-dynawo"]
 	path = backend/libs/powsybl-dynawo
 	url = https://github.com/powsybl/powsybl-dynawo
@@ -121,6 +116,9 @@
 [submodule "balances-adjustment-server"]
 	path = backend/servers/balances-adjustment-server
 	url = https://github.com/gridsuite/balances-adjustment-server
+[submodule "merge-orchestrator-server"]
+	path = backend/servers/merge-orchestrator-server
+	url = https://github.com/gridsuite/merge-orchestrator-server
 	branch = main
 	ignore = all
 [submodule "gridapp-template"]
@@ -311,11 +309,6 @@
 [submodule "powsybl-network-store-server"]
 	path = backend/servers/powsybl-network-store-server
 	url = https://github.com/powsybl/powsybl-network-store-server
-	branch = main
-	ignore = all
-[submodule "powsybl-network-hypothesis"]
-	path = backend/libs/powsybl-network-hypothesis
-	url = https://github.com/powsybl/powsybl-network-hypothesis
 	branch = main
 	ignore = all
 [submodule "powsybl-ws-dependencies"]
