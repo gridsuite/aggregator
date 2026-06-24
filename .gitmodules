@@ -108,11 +108,6 @@
 	url = https://github.com/gridsuite/commons-ui
 	branch = main
 	ignore = all
-[submodule "case-import-job"]
-	path = backend/jobs/case-import-job
-	url = https://github.com/gridsuite/case-import-job
-	branch = main
-	ignore = all
 [submodule "loadflow-server"]
 	path = backend/servers/loadflow-server
 	url = https://github.com/gridsuite/loadflow-server
@@ -126,31 +121,6 @@
 [submodule "gridapp-template"]
 	path = frontend/apps/gridapp-template
 	url = https://github.com/gridsuite/gridapp-template
-	branch = main
-	ignore = all
-[submodule "case-validation-server"]
-	path = backend/servers/case-validation-server
-	url = https://github.com/gridsuite/case-validation-server
-	branch = main
-	ignore = all
-[submodule "merge-notification-server"]
-	path = backend/servers/merge-notification-server
-	url = https://github.com/gridsuite/merge-notification-server
-	branch = main
-	ignore = all
-[submodule "cgmes-assembling-job"]
-	path = backend/jobs/cgmes-assembling-job
-	url = https://github.com/gridsuite/cgmes-assembling-job
-	branch = main
-	ignore = all
-[submodule "cgmes-boundary-server"]
-	path = backend/servers/cgmes-boundary-server
-	url = https://github.com/gridsuite/cgmes-boundary-server
-	branch = main
-	ignore = all
-[submodule "gridmerge-app"]
-	path = frontend/apps/gridmerge-app
-	url = https://github.com/gridsuite/gridmerge-app
 	branch = main
 	ignore = all
 [submodule "dependencies"]
@@ -211,11 +181,6 @@
 [submodule "dynamic-margin-calculation-server"]
 	path = backend/servers/dynamic-margin-calculation-server
 	url = https://github.com/gridsuite/dynamic-margin-calculation-server
-	branch = main
-	ignore = all
-[submodule "cgmes-boundary-import-job"]
-	path = backend/jobs/cgmes-boundary-import-job
-	url = https://github.com/gridsuite/cgmes-boundary-import-job
 	branch = main
 	ignore = all
 [submodule "griddyna-app"]
