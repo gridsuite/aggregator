@@ -29,8 +29,6 @@
         <module>powsybl-diagram</module>
         <module>powsybl-dynawo</module>
         <module>powsybl-entsoe</module>
-        <module>powsybl-math-native</module>
-        <module>powsybl-network-hypothesis</module>
         <module>powsybl-network-store</module>
         <module>powsybl-open-loadflow</module>
         <module>powsybl-optimizer</module>
