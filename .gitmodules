@@ -113,14 +113,6 @@
 	url = https://github.com/gridsuite/loadflow-server
 	branch = main
 	ignore = all
-[submodule "balances-adjustment-server"]
-	path = backend/servers/balances-adjustment-server
-	url = https://github.com/gridsuite/balances-adjustment-server
-[submodule "merge-orchestrator-server"]
-	path = backend/servers/merge-orchestrator-server
-	url = https://github.com/gridsuite/merge-orchestrator-server
-	branch = main
-	ignore = all
 [submodule "gridapp-template"]
 	path = frontend/apps/gridapp-template
 	url = https://github.com/gridsuite/gridapp-template
