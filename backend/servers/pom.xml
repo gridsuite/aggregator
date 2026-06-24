@@ -22,7 +22,6 @@
 
     <modules>
         <module>actions-server</module>
-        <module>balances-adjustment-server</module>
         <module>case-import-server</module>
         <module>case-validation-server</module>
         <module>cgmes-boundary-server</module>
