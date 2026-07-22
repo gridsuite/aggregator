@@ -358,3 +358,6 @@
 	url = https://github.com/gridsuite/gridmonitor-app
 	branch = main
 	ignore = all
+[submodule "backend/libs/actions"]
+	path = backend/libs/actions
+	url = https://github.com/gridsuite/actions
