@@ -73,11 +73,6 @@
 	url = https://github.com/gridsuite/gridstudy-app
 	branch = main
 	ignore = all
-[submodule "odre-server"]
-	path = backend/servers/odre-server
-	url = https://github.com/gridsuite/odre-server
-	branch = main
-	ignore = all
 [submodule "oidc-mock-server"]
 	path = tools/oidc-mock-server
 	url = https://github.com/gridsuite/oidc-mock-server
