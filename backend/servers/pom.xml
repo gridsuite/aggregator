@@ -39,7 +39,6 @@
         <module>loadflow-server</module>
         <module>network-map-server</module>
         <module>network-modification-server</module>
-        <module>odre-server</module>
         <module>powsybl-case-server</module>
         <module>powsybl-network-conversion-server</module>
         <module>powsybl-network-store-server</module>
