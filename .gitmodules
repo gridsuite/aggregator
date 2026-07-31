@@ -118,11 +118,6 @@
 	url = https://github.com/gridsuite/dependencies
 	branch = main
 	ignore = all
-[submodule "java-hades2-docker"]
-	path = docker/java-hades2-docker
-	url = https://github.com/gridsuite/java-hades2-docker
-	branch = main
-	ignore = all
 [submodule "actions-server"]
 	path = backend/servers/actions-server
 	url = https://github.com/gridsuite/actions-server
@@ -231,11 +226,6 @@
 [submodule "admin-tools"]
 	path = tools/admin-tools
 	url = https://github.com/gridsuite/admin-tools
-	branch = main
-	ignore = all
-[submodule "java-simulator-docker"]
-	path = docker/java-simulator-docker
-	url = https://github.com/gridsuite/java-simulator-docker
 	branch = main
 	ignore = all
 [submodule "sensitivity-analysis-server"]
