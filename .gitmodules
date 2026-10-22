@@ -348,3 +348,8 @@
 	url = https://github.com/gridsuite/actions
 	branch = main
 	ignore = all
+[submodule "frontend/apps/gridrt-app"]
+	path = frontend/apps/gridrt-app
+	url = https://github.com/gridsuite/gridrt-app
+	branch = main
+	ignore = all
