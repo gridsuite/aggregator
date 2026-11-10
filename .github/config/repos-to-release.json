@@ -18,6 +18,7 @@
   "https://github.com/gridsuite/loadflow-server",
   "https://github.com/gridsuite/network-map-server",
   "https://github.com/gridsuite/network-modification-server",
+  "https://github.com/gridsuite/rt-notification-server",
   "https://github.com/gridsuite/report-server",
   "https://github.com/gridsuite/security-analysis-server",
   "https://github.com/gridsuite/study-config-server",
