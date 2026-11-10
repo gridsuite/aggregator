@@ -353,3 +353,8 @@
 	url = https://github.com/gridsuite/gridrt-app
 	branch = main
 	ignore = all
+[submodule "backend/servers/rt-notification-server"]
+	path = backend/servers/rt-notification-server
+	url = https://github.com/gridsuite/rt-notification-server
+	branch = main
+	ignore = all
