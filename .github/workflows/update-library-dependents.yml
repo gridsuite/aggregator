@@ -1,0 +1,76 @@
+name: Update Maven library dependents
+
+on:
+  workflow_dispatch:
+    inputs:
+      groupId:
+        description: Maven groupId of the released library
+        required: true
+        type: string
+      artifactId:
+        description: Maven artifactId of the released library
+        required: true
+        type: string
+      version:
+        description: Published Maven version # todo -> récupérer automatiquement ?? depuis le pom de la lib, mais avoir un système pour vérifier si c'est bien publié sur maven ?
+        required: true
+        type: string
+  repository_dispatch: # todo : what is it?
+    types: [maven-library-released]
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    environment: main
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1.11.6
+        with:
+          app-id: ${{ vars.GRIDSUITE_ACTIONS_APPID }}
+          private-key: ${{ secrets.VERSIONBUMP_GHAPP_PRIVATE_KEY }}
+          owner: gridsuite
+          permission-contents: write # todo remove?
+          permission-pull-requests: write # todo remove?
+
+      - name: Checkout aggregator and backend submodules
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }} # todo remove? non présent dans les autres workflows
+          persist-credentials: false # todo remove?
+          submodules: false
+
+      # todo add Mask GH_TOKEN Token? and Validate pat-token input? and validate inputs?
+
+      - name: Validate and normalize event # todo nécessaire ?
+        id: event
+        run: python3 .github/scripts/normalize_library_update_event.py
+        env:
+          MANUAL_GROUP_ID: ${{ inputs.groupId }}
+          MANUAL_ARTIFACT_ID: ${{ inputs.artifactId }}
+          MANUAL_VERSION: ${{ inputs.version }}
+
+      - name: Checkout backend repositories from inventory
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/gridsuite/".insteadOf "https://github.com/gridsuite/"
+          git config --file .gitmodules --get-regexp '^submodule\..*\.path$' \
+            | awk '$2 ~ /^backend\// { print $2 }' \
+            | while IFS= read -r path; do
+                if ! git submodule update --init --remote -- "$path"; then
+                  echo "::warning::Could not check out backend submodule $path; remaining repositories will still be processed"
+                fi
+              done
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Create independent consumer pull requests
+        run: python3 .github/scripts/create_maven_update_prs.py --group-id "$GROUP_ID" --artifact-id "$ARTIFACT_ID" --version "$VERSION"
+        env:
+          GROUP_ID: ${{ steps.event.outputs.groupId }}
+          ARTIFACT_ID: ${{ steps.event.outputs.artifactId }}
+          VERSION: ${{ steps.event.outputs.version }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
